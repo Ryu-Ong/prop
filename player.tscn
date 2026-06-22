@@ -4,16 +4,18 @@
 [ext_resource type="Texture2D" uid="uid://c8ixq83gxhcu0" path="res://asset/Security Guard-2.png.png" id="2_onrkg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hqtel"]
-size = Vector2(23, 43)
+size = Vector2(82, 157)
 
 [node name="player" type="CharacterBody2D" unique_id=1636324958]
 script = ExtResource("1_onrkg")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=990174318]
+position = Vector2(1, 1)
+scale = Vector2(3.453125, 3.614271)
 texture = ExtResource("2_onrkg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1701431440]
-position = Vector2(-0.5, -1.5)
+position = Vector2(-1, -4.5)
 shape = SubResource("RectangleShape2D_hqtel")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1203866963]
