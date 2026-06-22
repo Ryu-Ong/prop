@@ -8,3 +8,8 @@ func _physics_process(delta: float) -> void:
 	var direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	velocity = direction * SPEED
 	move_and_slide()
+	
+	if direction == Vector2.ZERO:
+		animated_sprite.play("Security Idle Down")
+	elif direction.y > 0:
+		animated_sprite.play("Security Walk Down")
