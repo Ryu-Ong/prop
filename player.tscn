@@ -81,13 +81,7 @@ shape = SubResource("RectangleShape2D_hqtel")
 position = Vector2(1, -1.0000076)
 scale = Vector2(3.5781248, 3.5781248)
 sprite_frames = SubResource("SpriteFrames_1jxqw")
-<<<<<<< HEAD
-animation = &"Security Walk Down"
-frame_progress = 0.3081096
-=======
 animation = &"Security Idle Down"
 frame_progress = 0.9006487
-
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=630619689]
 replication_config = SubResource("SceneReplicationConfig_i3pqv")
->>>>>>> 4a399962ef3b94fea419d3d81741124abc028d2a
