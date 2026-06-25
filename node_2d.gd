@@ -3,28 +3,33 @@ extends Node2D
 @export var player_scene : PackedScene
 
 func _ready():
-	# everyone spawns their own player
+	print("READY - my id: ", multiplayer.get_unique_id(), " is server: ", multiplayer.is_server())
 	spawn_player(multiplayer.get_unique_id())
 	
 	if multiplayer.is_server():
 		multiplayer.peer_disconnected.connect(remove_player)
 	else:
-		# tell server we're ready so it spawns us on its end
 		notify_server_ready.rpc_id(1)
 
-@rpc("any_peer", "call_local", "reliable")
+@rpc("any_peer", "call_remote", "reliable")
 func notify_server_ready():
 	var id = multiplayer.get_remote_sender_id()
-	# spawn this client on the server
 	spawn_player(id)
-	# tell all other clients to spawn this player too
 	spawn_player_rpc.rpc(id)
+	for child in get_children():
+		if not child is CharacterBody2D:
+			continue
+		var existing_id = int(child.name)
+		if existing_id != id:
+			spawn_player_rpc.rpc_id(id, existing_id)
 
-@rpc("any_peer", "call_local", "reliable")
+@rpc("any_peer", "call_remote", "reliable")
 func spawn_player_rpc(id: int):
+	print("spawn_player_rpc called for: ", id, " on peer: ", multiplayer.get_unique_id())
 	spawn_player(id)
 
 func spawn_player(id: int):
+	print("spawn_player called for: ", id, " exists already: ", has_node(str(id)))
 	if has_node(str(id)):
 		return
 	var player = player_scene.instantiate()
@@ -32,7 +37,6 @@ func spawn_player(id: int):
 	player.set_multiplayer_authority(id)
 	add_child(player)
 	player.position = Vector2(200 + randi() % 200, 200 + randi() % 200)
-	print("SPAWNED: ", id, " auth: ", player.get_multiplayer_authority())
 
 func remove_player(id: int):
 	if has_node(str(id)):
