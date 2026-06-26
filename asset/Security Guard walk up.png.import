@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dbymrv4cld8xp"
-path="res://.godot/imported/Security Guard.png-58ee4ea15419a368e02942d62bfcedd2.ctex"
+uid="uid://b4jxx80tas3ds"
+path="res://.godot/imported/Security Guard walk up.png-db3cf97042064c44a165f87f9c93bfe0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/Security Guard.png"
-dest_files=["res://.godot/imported/Security Guard.png-58ee4ea15419a368e02942d62bfcedd2.ctex"]
+source_file="res://asset/Security Guard walk up.png"
+dest_files=["res://.godot/imported/Security Guard walk up.png-db3cf97042064c44a165f87f9c93bfe0.ctex"]
 
 [params]
 
