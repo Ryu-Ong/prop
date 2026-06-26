@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://cif3d7d2bq6xr" path="res://asset/brown_darker.png" id="5_rj586"]
 [ext_resource type="Texture2D" uid="uid://pxe3pu8bwpbw" path="res://asset/brown_dark.png" id="6_4d7sh"]
 [ext_resource type="Texture2D" uid="uid://85hf8e408cru" path="res://asset/green_dark.png" id="7_ir8iy"]
+[ext_resource type="PackedScene" uid="uid://besd6uxyic2hh" path="res://static_body_2d.tscn" id="12_x0ka3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hqtel"]
 size = Vector2(82, 157)
@@ -166,3 +167,6 @@ script = SubResource("GDScript_rj586")
 
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="." unique_id=1656656820]
 spawn_path = NodePath("..")
+
+[node name="StaticBody2D" parent="." unique_id=1666608514 instance=ExtResource("12_x0ka3")]
+position = Vector2(382, -555)

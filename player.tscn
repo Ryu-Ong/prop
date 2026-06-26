@@ -83,5 +83,9 @@ scale = Vector2(3.5781248, 3.5781248)
 sprite_frames = SubResource("SpriteFrames_1jxqw")
 animation = &"Security Idle Down"
 frame_progress = 0.9006487
+
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=630619689]
 replication_config = SubResource("SceneReplicationConfig_i3pqv")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=124586071]
+visible = false
