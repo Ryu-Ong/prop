@@ -85,5 +85,4 @@ tile_set = SubResource("TileSet_rj586")
 script = SubResource("GDScript_rj586")
 
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="." unique_id=1656656820]
-_spawnable_scenes = PackedStringArray("uid://cao1otk0rmyt0")
 spawn_path = NodePath("..")
