@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6y1ftac5ukj"
-path="res://.godot/imported/Security Guard idle.png-5f7b840ca55685ed46955ce635d05277.ctex"
+uid="uid://dakus28q2qtyl"
+path="res://.godot/imported/Security Guard idle down.png-32b0edf2b4a1775bb83b33a0e3a45966.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/Security Guard idle.png"
-dest_files=["res://.godot/imported/Security Guard idle.png-5f7b840ca55685ed46955ce635d05277.ctex"]
+source_file="res://asset/Security Guard idle down.png"
+dest_files=["res://.godot/imported/Security Guard idle down.png-32b0edf2b4a1775bb83b33a0e3a45966.ctex"]
 
 [params]
 

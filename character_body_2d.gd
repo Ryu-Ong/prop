@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 const SPEED = 500.0
 
-@onready var animated_sprite = $AnimatedSprite2D
+@onready var animated_sprite = $Animations
 @onready var camera = $Camera2D
 
 var last_position = Vector2.ZERO
@@ -20,12 +20,12 @@ func _physics_process(delta: float) -> void:
 	var move_delta = position - last_position
 	last_position = position
 	if move_delta.length() < 0.1:
-		animated_sprite.play("Security Idle Down")
+		animated_sprite.play("Sec Idle Down")
 	elif move_delta.y > 0:
-		animated_sprite.play("Security Walk Down")
+		animated_sprite.play("Sec Walk Down")
 	elif move_delta.y < 0:
-		animated_sprite.play("Security Walk Up")
+		animated_sprite.play("Sec Walk Up")
 	elif move_delta.x > 0:
-		animated_sprite.play("Security Walk Right")
+		animated_sprite.play("Sec Walk Right")
 	elif move_delta.x < 0:
-		animated_sprite.play("Security Walk Left")
+		animated_sprite.play("Sec Walk Left")
