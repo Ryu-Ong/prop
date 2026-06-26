@@ -88,7 +88,6 @@ atlas = ExtResource("6_dw050")
 region = Rect2(0, 64, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dx0e4"]
-resource_name = "Sec "
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -180,13 +179,6 @@ shape = SubResource("RectangleShape2D_hqtel")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1203866963]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=450503504]
-position = Vector2(1, -1.0000076)
-scale = Vector2(3.5781248, 3.5781248)
-sprite_frames = SubResource("SpriteFrames_1jxqw")
-animation = &"Security Idle Down"
-frame_progress = 0.9006487
-
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=630619689]
 replication_config = SubResource("SceneReplicationConfig_i3pqv")
 
@@ -195,4 +187,3 @@ position = Vector2(4.0000005, 5)
 scale = Vector2(3.5507815, 3.4414063)
 sprite_frames = SubResource("SpriteFrames_dx0e4")
 animation = &"Sec Idle Down"
-frame_progress = 0.17058535
