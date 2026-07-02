@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://b4jxx80tas3ds" path="res://asset/Security Guard walk up.png" id="6_dw050"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hqtel"]
-size = Vector2(82, 157)
+size = Vector2(63, 116)
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_i3pqv"]
 properties/0/path = NodePath(".:position")
@@ -88,6 +88,7 @@ atlas = ExtResource("6_dw050")
 region = Rect2(0, 64, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dx0e4"]
+resource_name = "Sec "
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -174,16 +175,17 @@ collision_layer = 3
 script = ExtResource("1_onrkg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1701431440]
-position = Vector2(1, -1)
 shape = SubResource("RectangleShape2D_hqtel")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1203866963]
+zoom = Vector2(1.2, 1.2)
+limit_enabled = false
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=630619689]
 replication_config = SubResource("SceneReplicationConfig_i3pqv")
 
 [node name="Animations" type="AnimatedSprite2D" parent="." unique_id=1483874943]
-position = Vector2(4.0000005, 5)
-scale = Vector2(3.5507815, 3.4414063)
+position = Vector2(1.9999998, 1.9999999)
+scale = Vector2(2.7107816, 2.627281)
 sprite_frames = SubResource("SpriteFrames_dx0e4")
 animation = &"Sec Idle Down"

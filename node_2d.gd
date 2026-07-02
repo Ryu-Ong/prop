@@ -36,7 +36,8 @@ func spawn_player(id: int):
 	player.name = str(id)
 	player.set_multiplayer_authority(id)
 	add_child(player)
-	player.position = Vector2(200 + randi() % 200, 200 + randi() % 200)
+	player.position = Vector2(0, 0)
+# player.position = Vector2(200 + randi() % 200, 200 + randi() % 200)
 
 func remove_player(id: int):
 	if has_node(str(id)):
