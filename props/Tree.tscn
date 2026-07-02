@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://besd6uxyic2hh"]
 
-[ext_resource type="Script" uid="uid://b415ho0u614ps" path="res://Tree.gd" id="1_ypqmy"]
+[ext_resource type="Script" uid="uid://b415ho0u614ps" path="res://props/Tree.gd" id="1_ypqmy"]
 [ext_resource type="Texture2D" uid="uid://bpf56p1ld5vvt" path="res://asset/tree-1.png.png" id="2_dyby8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ypqmy"]

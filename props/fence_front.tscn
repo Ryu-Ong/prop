@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://nymhwc735ay"]
+
+[ext_resource type="Texture2D" uid="uid://ca2tt73bvo34e" path="res://asset/fence_front.png" id="1_1yk8n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a0367"]
+size = Vector2(128, 8)
+
+[node name="FenceFront" type="StaticBody2D" unique_id=1723082434]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1850016325]
+position = Vector2(-2.861023e-06, 2.861023e-06)
+scale = Vector2(4, 4)
+texture = ExtResource("1_1yk8n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=349557350]
+position = Vector2(0, 60)
+shape = SubResource("RectangleShape2D_a0367")
