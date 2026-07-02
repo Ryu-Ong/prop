@@ -1,6 +1,8 @@
 extends Node2D
 
 @export var player_scene : PackedScene
+@export var Hider_scene : PackedScene
+
 
 func _ready():
 	print("READY - my id: ", multiplayer.get_unique_id(), " is server: ", multiplayer.is_server())
@@ -33,10 +35,15 @@ func spawn_player(id: int):
 	if has_node(str(id)):
 		return
 	var player = player_scene.instantiate()
+	var Hider = Hider_scene.instantiate()
 	player.name = str(id)
 	player.set_multiplayer_authority(id)
 	add_child(player)
 	player.position = Vector2(0, 0)
+	Hider.name = str(id)
+	Hider.set_multiplayer_authority(id)
+	add_child(Hider)
+	Hider.position = Vector2(0, 0)
 # player.position = Vector2(200 + randi() % 200, 200 + randi() % 200)
 
 func remove_player(id: int):

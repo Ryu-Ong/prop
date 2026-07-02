@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://bec406ki7um3q"]
+
+[ext_resource type="Script" uid="uid://vd2wn3458ir5" path="res://Hider.gd" id="1_mhxh4"]
+[ext_resource type="Texture2D" uid="uid://di38k233l255t" path="res://asset/pixel-art-of-retro-tv-set-with-simple-design-png.webp" id="2_mhxh4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hqtel"]
+size = Vector2(75, 65)
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_i3pqv"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+
+[node name="Hider" type="CharacterBody2D" unique_id=1636324958]
+collision_layer = 3
+script = ExtResource("1_mhxh4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1701431440]
+position = Vector2(-1.5, 10.5)
+shape = SubResource("RectangleShape2D_hqtel")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1203866963]
+zoom = Vector2(1.2, 1.2)
+limit_enabled = false
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=630619689]
+replication_config = SubResource("SceneReplicationConfig_i3pqv")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=234461220]
+position = Vector2(-0.9999999, -9.536743e-07)
+scale = Vector2(0.10663266, 0.10663266)
+texture = ExtResource("2_mhxh4")
