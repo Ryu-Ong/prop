@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://c1sx73a86jh05"]
+
+[ext_resource type="Script" uid="uid://ni0lwbiapa2c" path="res://props/fence_right.gd" id="1_knhad"]
+[ext_resource type="Texture2D" uid="uid://c7jraeae56fsb" path="res://asset/fence_right.png" id="2_0ir2x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g2k6k"]
+size = Vector2(24, 128)
+
+[node name="fence_right" type="StaticBody2D" unique_id=839078391]
+script = ExtResource("1_knhad")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2062635760]
+position = Vector2(1.9073486e-06, -3.8146973e-06)
+scale = Vector2(4, 3.9999998)
+texture = ExtResource("2_0ir2x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1641901185]
+position = Vector2(-52, 0)
+shape = SubResource("RectangleShape2D_g2k6k")
