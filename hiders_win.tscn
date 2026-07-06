@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://o3lfokuuqkou"]
+
+[ext_resource type="FontFile" uid="uid://d3nodnkhlest1" path="res://asset/GREEN NATURE.ttf" id="1_3ql41"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bl0uw"]
+bg_color = Color(0.34901962, 1, 0.1254902, 1)
+
+[node name="Control" type="Control" unique_id=534248403]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="." unique_id=1973440419]
+layout_mode = 0
+offset_right = 1151.0
+offset_bottom = 653.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_bl0uw")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1372509520]
+layout_mode = 0
+offset_right = 1147.0
+offset_bottom = 646.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/normal_font = ExtResource("1_3ql41")
+theme_override_font_sizes/normal_font_size = 96
+bbcode_enabled = true
+text = "[wave] [center]Hiders Win"

@@ -55,9 +55,9 @@ func remove_player(id: int):
 func _process(delta):
 	timer.text = str(int(leveltimer.time_left))
 
-func game_over():
-	get_tree().change_scene_to_file("res://asset/Main_menu.tscn")
+func hider_win():
+	get_tree().change_scene_to_file("res://hiders_win.tscn")
 
 func _on_level_timer_timeout() -> void:
-	game_over()
+	hider_win()
 	pass # Replace with function body.
