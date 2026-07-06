@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://lbs3p2auw5kc"]
 
 [ext_resource type="Script" uid="uid://hreduupmcnqg" path="res://lobby.gd" id="1_ll2xe"]
+[ext_resource type="FontFile" uid="uid://d3nodnkhlest1" path="res://asset/GREEN NATURE.ttf" id="2_1gg6n"]
 [ext_resource type="PackedScene" uid="uid://b5sg086amhx76" path="res://props/rock.tscn" id="2_tftiq"]
 [ext_resource type="PackedScene" uid="uid://besd6uxyic2hh" path="res://props/Tree.tscn" id="3_1gg6n"]
 [ext_resource type="PackedScene" uid="uid://d0dglobpk6b55" path="res://props/blue_flower.tscn" id="4_x4164"]
@@ -20,8 +21,6 @@ border_width_top = 3
 border_width_right = 3
 border_width_bottom = 3
 border_color = Color(0, 0, 0, 1)
-
-[sub_resource type="SystemFont" id="SystemFont_ein8w"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gm5bj"]
 bg_color = Color(0, 0.5372549, 0, 1)
@@ -83,7 +82,8 @@ grow_vertical = 2
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
-theme_override_font_sizes/font_size = 32
+theme_override_fonts/font = ExtResource("2_1gg6n")
+theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_tftiq")
 text = "Multiplayer Lobby"
 horizontal_alignment = 1
@@ -92,15 +92,16 @@ horizontal_alignment = 1
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
-theme_override_font_sizes/font_size = 24
+theme_override_fonts/font = ExtResource("2_1gg6n")
+theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_8ldoj")
 
 [node name="Button" type="Button" parent="VBoxContainer" unique_id=1068063589]
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
-theme_override_fonts/font = SubResource("SystemFont_ein8w")
-theme_override_font_sizes/font_size = 32
+theme_override_fonts/font = ExtResource("2_1gg6n")
+theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_gm5bj")
 text = "Host"
 
@@ -108,7 +109,8 @@ text = "Host"
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
-theme_override_font_sizes/font_size = 32
+theme_override_fonts/font = ExtResource("2_1gg6n")
+theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_g30ku")
 text = "Join"
 
@@ -116,7 +118,8 @@ text = "Join"
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
-theme_override_font_sizes/font_size = 32
+theme_override_fonts/font = ExtResource("2_1gg6n")
+theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_up7ya")
 text = "Start"
 
@@ -125,7 +128,8 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
-theme_override_font_sizes/font_size = 20
+theme_override_fonts/font = ExtResource("2_1gg6n")
+theme_override_font_sizes/font_size = 32
 theme_override_styles/panel = SubResource("StyleBoxFlat_mcopp")
 
 [node name="rock" parent="VBoxContainer" unique_id=711627764 instance=ExtResource("2_tftiq")]
