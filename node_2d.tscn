@@ -278,3 +278,5 @@ layout_mode = 2
 wait_time = 45.0
 one_shot = true
 autostart = true
+
+[connection signal="timeout" from="LevelTimer" to="." method="_on_level_timer_timeout"]
