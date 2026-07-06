@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://nymhwc735ay"]
 
 [ext_resource type="Texture2D" uid="uid://ca2tt73bvo34e" path="res://asset/fence_front.png" id="1_1yk8n"]
+[ext_resource type="Script" uid="uid://47ub11h2c3iu" path="res://props/fence_front.gd" id="2_plfa0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a0367"]
 size = Vector2(128, 8)
@@ -11,6 +12,7 @@ size = Vector2(128, 8)
 position = Vector2(-2.861023e-06, 2.861023e-06)
 scale = Vector2(4, 4)
 texture = ExtResource("1_1yk8n")
+script = ExtResource("2_plfa0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=349557350]
 position = Vector2(0, 60)

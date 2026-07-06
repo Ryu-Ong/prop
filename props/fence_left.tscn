@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://b2mfy2rhi87c4"]
 
 [ext_resource type="Texture2D" uid="uid://cbfa4hbk7alv8" path="res://asset/fence_left.png" id="1_2bbno"]
+[ext_resource type="Script" uid="uid://g4jx1i12vren" path="res://props/fence_left.gd" id="1_70ofe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0i64n"]
 size = Vector2(24, 128)
 
 [node name="FenceLeft" type="StaticBody2D" unique_id=935924741]
+script = ExtResource("1_70ofe")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1744767634]
 position = Vector2(3.8146973e-06, -3.8146973e-06)

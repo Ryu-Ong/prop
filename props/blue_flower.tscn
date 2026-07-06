@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://d0dglobpk6b55"]
+
+[ext_resource type="Texture2D" uid="uid://xcy3rs75hmbx" path="res://asset/blue_flower.png" id="1_bbmgc"]
+[ext_resource type="Script" uid="uid://bsfpudesu3cp3" path="res://props/blue_flower.gd" id="2_bbmgc"]
+
+[node name="Node2D" type="Node2D" unique_id=218200156]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2052291153]
+position = Vector2(-9.536743e-07, 1.4305115e-06)
+scale = Vector2(2, 2)
+texture = ExtResource("1_bbmgc")
+script = ExtResource("2_bbmgc")
