@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://cowye5xb68h71"]
 
-[ext_resource type="FontFile" uid="uid://bf04k8oklkynp" path="res://asset/GlitchGoblin-2O87v.ttf" id="1_ye2uk"]
-[ext_resource type="Texture2D" uid="uid://d5x51xx6n0t6" path="res://icon.svg" id="2_o6fnk"]
+[ext_resource type="FontFile" uid="uid://d3nodnkhlest1" path="res://asset/GREEN NATURE.ttf" id="1_qdhxh"]
 
 [node name="Timer" type="Control" unique_id=375536253]
 layout_mode = 3
@@ -13,17 +12,12 @@ grow_vertical = 2
 
 [node name="Label" type="Label" parent="." unique_id=1028204859]
 layout_mode = 0
-offset_left = 120.0
-offset_top = 11.0
-offset_right = 242.0
-offset_bottom = 98.0
+offset_left = 1.0
+offset_top = 2.0
+offset_right = 123.0
+offset_bottom = 89.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("1_ye2uk")
+theme_override_fonts/font = ExtResource("1_qdhxh")
 theme_override_font_sizes/font_size = 64
 text = "0"
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=205933750]
-position = Vector2(53, 53)
-scale = Vector2(0.796875, 0.796875)
-texture = ExtResource("2_o6fnk")

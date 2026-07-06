@@ -265,12 +265,16 @@ layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = 457.0
-offset_right = 695.0
-offset_bottom = 192.0
+offset_left = 505.0
+offset_top = 8.0
+offset_right = 743.0
+offset_bottom = 200.0
 grow_horizontal = 0
 
 [node name="Timer" parent="UI/Control/VBoxContainer" unique_id=375536253 instance=ExtResource("14_nr8wp")]
 layout_mode = 2
 
-[node name="Timer" type="Timer" parent="." unique_id=1361698979]
+[node name="LevelTimer" type="Timer" parent="." unique_id=1361698979]
+wait_time = 45.0
+one_shot = true
+autostart = true
