@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://b2mfy2rhi87c4" path="res://props/fence_left.tscn" id="13_0h7mo"]
 [ext_resource type="PackedScene" uid="uid://cowye5xb68h71" path="res://timer.tscn" id="14_nr8wp"]
 [ext_resource type="PackedScene" uid="uid://c1sx73a86jh05" path="res://props/fence_right.tscn" id="15_d2bti"]
+[ext_resource type="PackedScene" uid="uid://boxfwj8pkmtji" path="res://test_tree.tscn" id="16_ta5nu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rj586"]
 texture = ExtResource("1_q6r6c")
@@ -431,5 +432,8 @@ position = Vector2(1568, 1488)
 wait_time = 45.0
 one_shot = true
 autostart = true
+
+[node name="TestTree" parent="." unique_id=1194443311 instance=ExtResource("16_ta5nu")]
+position = Vector2(-269, -111)
 
 [connection signal="timeout" from="LevelTimer" to="." method="_on_level_timer_timeout"]

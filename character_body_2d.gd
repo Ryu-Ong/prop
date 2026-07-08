@@ -1,9 +1,12 @@
 extends CharacterBody2D
 
+var canHit = true
+
 const SPEED = 500.0
 
 @onready var animated_sprite = $Animations
 @onready var camera = $Camera2D
+
 
 var last_position = Vector2.ZERO
 
@@ -12,7 +15,10 @@ func _ready():
 	collision_layer = 2
 	collision_mask = 1
 
+
+
 func _physics_process(delta: float) -> void:
+	
 	if is_multiplayer_authority():
 		var direction = Input.get_vector("hunter_left", "hunter_right", "hunter_up", "hunter_down")
 		velocity = direction * SPEED
