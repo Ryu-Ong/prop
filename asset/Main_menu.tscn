@@ -49,20 +49,6 @@ grow_vertical = 2
 script = ExtResource("1_1v72u")
 
 [node name="Panel" type="Panel" parent="." unique_id=1215572849]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -8.0
-offset_top = -8.0
-offset_right = -8.0
-offset_bottom = -8.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_mxk8c")
-
-[node name="Panel2" type="Panel" parent="." unique_id=1866858803]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

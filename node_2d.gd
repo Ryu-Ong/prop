@@ -2,11 +2,13 @@ extends Node2D
 
 @export var player_scene : PackedScene
 @export var Hider_scene : PackedScene
-
+@onready var timer = $UI/Control/VBoxContainer/Timer/Label
+@onready var leveltimer = $LevelTimer
 
 func _ready():
 	print("READY - my id: ", multiplayer.get_unique_id(), " is server: ", multiplayer.is_server())
 	spawn_player(multiplayer.get_unique_id())
+	timer.text = str(int(leveltimer.time_left))
 	
 	if multiplayer.is_server():
 		multiplayer.peer_disconnected.connect(remove_player)
@@ -49,3 +51,13 @@ func spawn_player(id: int):
 func remove_player(id: int):
 	if has_node(str(id)):
 		get_node(str(id)).queue_free()
+		
+func _process(delta):
+	timer.text = str(int(leveltimer.time_left))
+
+func hider_win():
+	get_tree().change_scene_to_file("res://hiders_win.tscn")
+
+func _on_level_timer_timeout() -> void:
+	hider_win()
+	pass # Replace with function body.
