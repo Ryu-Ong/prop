@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://bottqebmmyvmw"]
 
 [ext_resource type="Texture2D" uid="uid://d5x51xx6n0t6" path="res://icon.svg" id="1_gn1v3"]
+[ext_resource type="Script" uid="uid://8w8ij1upnywa" path="res://baton.gd" id="1_tdgbu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_74ka4"]
 size = Vector2(290, 32)
 
 [node name="Baton" type="Node2D" unique_id=786560161]
+script = ExtResource("1_tdgbu")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=780681588]
 
