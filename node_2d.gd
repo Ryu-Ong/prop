@@ -38,7 +38,7 @@ func spawn_player(id: int):
 		return
 	var scene
 	var role = Global.all_roles.get(id, "hunter")
-	scene = hunter_scene if role == "hunter" else hider_scene
+	scene = hider_scene if role == "hider" else hunter_scene
 	var player = scene.instantiate()
 	player.name = str(id)
 	player.set_multiplayer_authority(id)
@@ -55,5 +55,11 @@ func _process(delta):
 func hider_win():
 	get_tree().change_scene_to_file("res://hiders_win.tscn")
 
+var first_timeout = true
 func _on_level_timer_timeout() -> void:
-	hider_win()
+	if first_timeout:
+		first_timeout = false
+		$LevelTimer.wait_time = 180.0
+		$LevelTimer.start()
+	else:
+		hider_win()
