@@ -7,6 +7,8 @@ const MAX_PLAYERS = 8
 @onready var start_btn = $VBoxContainer/ButtonStart
 @onready var player_list = $VBoxContainer/ItemList
 
+var connected_peers = []
+
 func _ready():
 	start_btn.visible = false
 	multiplayer.peer_connected.connect(_on_peer_connected)
@@ -29,10 +31,11 @@ func _on_connected_to_server():
 	add_player_to_list(multiplayer.get_unique_id())
 
 func _on_peer_connected(id: int):
+	connected_peers.append(id)
 	add_player_to_list(id)
 
 func _on_peer_disconnected(id: int):
-	# remove from list — find and remove by id
+	connected_peers.erase(id)
 	for i in player_list.item_count:
 		if player_list.get_item_text(i) == str(id):
 			player_list.remove_item(i)
@@ -44,7 +47,27 @@ func add_player_to_list(id: int):
 func _on_start_pressed():
 	if not multiplayer.is_server():
 		return
+	var all_peers = [multiplayer.get_unique_id()] + connected_peers
+	var hunter_id = all_peers[randi() % all_peers.size()]
+	var role_map = {}
+	for id in all_peers:
+		role_map[id] = "hunter" if id == hunter_id else "hider"
+	for id in all_peers:
+		if id == multiplayer.get_unique_id():
+			Global.my_role = role_map[id]
+			Global.all_roles = role_map
+		else:
+			assign_role.rpc_id(id, role_map[id], role_map)
+	# wait a moment for roles to arrive before loading
+	await get_tree().create_timer(0.3).timeout
 	load_game.rpc()
+
+@rpc("authority", "call_remote", "reliable")
+func assign_role(role: String, role_map: Dictionary):
+	Global.my_role = role
+	Global.all_roles = role_map
+	print("I am a: ", role)
+	print("All roles: ", role_map)
 
 @rpc("authority", "call_local", "reliable")
 func load_game():

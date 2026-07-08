@@ -1,12 +1,14 @@
 extends Node2D
 
-@export var player_scene : PackedScene
-@export var Hider_scene : PackedScene
+@export var hunter_scene : PackedScene
+@export var hider_scene : PackedScene
+
 @onready var timer = $UI/Control/VBoxContainer/Timer/Label
 @onready var leveltimer = $LevelTimer
 
 func _ready():
 	print("READY - my id: ", multiplayer.get_unique_id(), " is server: ", multiplayer.is_server())
+	print("My role: ", Global.my_role)
 	spawn_player(multiplayer.get_unique_id())
 	timer.text = str(int(leveltimer.time_left))
 	
@@ -29,29 +31,24 @@ func notify_server_ready():
 
 @rpc("any_peer", "call_remote", "reliable")
 func spawn_player_rpc(id: int):
-	print("spawn_player_rpc called for: ", id, " on peer: ", multiplayer.get_unique_id())
 	spawn_player(id)
 
 func spawn_player(id: int):
-	print("spawn_player called for: ", id, " exists already: ", has_node(str(id)))
 	if has_node(str(id)):
 		return
-	var player = player_scene.instantiate()
-	var Hider = Hider_scene.instantiate()
+	var scene
+	var role = Global.all_roles.get(id, "hunter")
+	scene = hunter_scene if role == "hunter" else hider_scene
+	var player = scene.instantiate()
 	player.name = str(id)
 	player.set_multiplayer_authority(id)
 	add_child(player)
 	player.position = Vector2(0, 0)
-	Hider.name = str(id)
-	Hider.set_multiplayer_authority(id)
-	add_child(Hider)
-	Hider.position = Vector2(0, 0)
-# player.position = Vector2(200 + randi() % 200, 200 + randi() % 200)
 
 func remove_player(id: int):
 	if has_node(str(id)):
 		get_node(str(id)).queue_free()
-		
+
 func _process(delta):
 	timer.text = str(int(leveltimer.time_left))
 
@@ -60,4 +57,3 @@ func hider_win():
 
 func _on_level_timer_timeout() -> void:
 	hider_win()
-	pass # Replace with function body.

@@ -19,13 +19,14 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 	var move_delta = position - last_position
 	last_position = position
+
 	if move_delta.length() < 0.1:
 		animated_sprite.play("Sec Idle Down")
-	elif move_delta.y > 0:
+	elif move_delta.y > 0.5:
 		animated_sprite.play("Sec Walk Down")
-	elif move_delta.y < 0:
+	elif move_delta.y < -0.5:
 		animated_sprite.play("Sec Walk Up")
 	elif move_delta.x > 0:
 		animated_sprite.play("Sec Walk Right")
-	elif move_delta.x < 0:
+	else:
 		animated_sprite.play("Sec Walk Left")

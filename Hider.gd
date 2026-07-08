@@ -1,7 +1,6 @@
 extends CharacterBody2D
 
-
-const SPEED = 500.0
+const SPEED = 400.0
 
 @onready var camera = $Camera2D
 
@@ -14,7 +13,7 @@ func _ready():
 
 func _physics_process(delta: float) -> void:
 	if is_multiplayer_authority():
-		var direction = Input.get_vector("hunter_left", "hunter_right", "hunter_up", "hunter_down")
+		var direction = Input.get_vector("hider_left", "hider_right", "hider_up", "hider_down")
 		velocity = direction * SPEED
 		move_and_slide()
 	var move_delta = position - last_position
