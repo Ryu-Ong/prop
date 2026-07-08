@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://djbk002tkepm8" path="res://asset/Security Guard Walk Left.png" id="4_2hs0m"]
 [ext_resource type="Texture2D" uid="uid://bx2j6gwjj1yo7" path="res://asset/Security Guard Walk Right.png" id="5_1jxqw"]
 [ext_resource type="Texture2D" uid="uid://b4jxx80tas3ds" path="res://asset/Security Guard walk up.png" id="6_dw050"]
+[ext_resource type="Script" uid="uid://daucm7h2b5xj2" path="res://attack.gd" id="7_gur1f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hqtel"]
 size = Vector2(62, 116)
@@ -188,3 +189,6 @@ position = Vector2(0.9999943, 1)
 scale = Vector2(2.7285159, 2.644469)
 sprite_frames = SubResource("SpriteFrames_dx0e4")
 animation = &"Sec Idle Down"
+
+[node name="Attack" type="Node2D" parent="." unique_id=1894033721]
+script = ExtResource("7_gur1f")
