@@ -18,3 +18,10 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 	var move_delta = position - last_position
 	last_position = position
+
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	if area.name == "Baton":
+		queue_free()
+		get_tree().change_scene_to_file("res://hunters_win.tscn")
+	pass # Replace with function body.
