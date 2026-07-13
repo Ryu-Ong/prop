@@ -71,4 +71,7 @@ func assign_role(role: String, role_map: Dictionary):
 
 @rpc("authority", "call_local", "reliable")
 func load_game():
-	get_tree().change_scene_to_file("res://node_2d.tscn")
+	if Global.my_role == "hunter":
+		get_tree().change_scene_to_file("res://hunter_waiting_room.tscn")
+	else:
+		get_tree().change_scene_to_file("res://node_2d.tscn")
