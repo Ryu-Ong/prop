@@ -433,7 +433,7 @@ wait_time = 45.0
 one_shot = true
 autostart = true
 
-[node name="Tree3" parent="." unique_id=1793427014 instance=ExtResource("16_ta5nu")]
-position = Vector2(-385, -173)
+[node name="TestTree" parent="." unique_id=1227907331 instance=ExtResource("16_ta5nu")]
+position = Vector2(-250, -46)
 
 [connection signal="timeout" from="LevelTimer" to="." method="_on_level_timer_timeout"]
