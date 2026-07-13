@@ -11,6 +11,9 @@ properties/0/path = NodePath(".:position")
 properties/0/spawn = true
 properties/0/replication_mode = 2
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mhxh4"]
+size = Vector2(75, 65)
+
 [node name="Hider" type="CharacterBody2D" unique_id=1636324958]
 collision_layer = 3
 script = ExtResource("1_mhxh4")
@@ -30,3 +33,13 @@ replication_config = SubResource("SceneReplicationConfig_i3pqv")
 position = Vector2(-0.9999999, -9.536743e-07)
 scale = Vector2(0.10663266, 0.10663266)
 texture = ExtResource("2_mhxh4")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1706597385]
+collision_layer = 5
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=486198071]
+position = Vector2(-1.5, 10.5)
+shape = SubResource("RectangleShape2D_mhxh4")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

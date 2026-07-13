@@ -12,7 +12,7 @@ func _process(delta: float) -> void:
 
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
-	if area.name == "baton":
+	if area.name == "Baton":
 		queue_free()
 
 	pass # Replace with function body.
