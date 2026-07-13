@@ -21,12 +21,11 @@ func broadcast_position(pos: Vector2):
 	position = pos
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
-	# only the hider's own machine decides if they got hit
 	if not is_multiplayer_authority():
 		return
 	if area.name == "Baton":
 		die.rpc()
 
-@rpc("authority", "call_local", "reliable")
+@rpc("any_peer", "call_local", "reliable")
 func die():
-	get_tree().change_scene_to_file("res://hunters_win.tscn")
+	Global.report_death(int(str(name)))
