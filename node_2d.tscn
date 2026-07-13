@@ -429,7 +429,7 @@ position = Vector2(-1632, 1488)
 position = Vector2(1568, 1488)
 
 [node name="LevelTimer" type="Timer" parent="." unique_id=1829083535]
-wait_time = 45.0
+wait_time = 31.0
 one_shot = true
 autostart = true
 

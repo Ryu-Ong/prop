@@ -9,19 +9,28 @@ extends Node2D
 func _ready():
 	print("READY - my id: ", multiplayer.get_unique_id(), " is server: ", multiplayer.is_server())
 	print("My role: ", Global.my_role)
-	timer.text = str(int(leveltimer.time_left))
 
 	if multiplayer.is_server():
 		multiplayer.peer_disconnected.connect(remove_player)
-		spawn_player(multiplayer.get_unique_id())
-		if Global.my_role == "hider":
-			show_role_label()
-			start_hider_countdown()
+
+	Global.enter_game()
+
+	if Global.my_role == "hider":
+		show_role_label()
+		leveltimer.stop()
+		# 30s hiding phase with visible countdown
+		for i in range(30, 0, -1):
+			timer.text = str(i)
+			await get_tree().create_timer(1.0).timeout
+		leveltimer.wait_time = 180.0
+		leveltimer.start()
 	else:
-		notify_server_ready.rpc_id(1)
-		if Global.my_role == "hider":
-			show_role_label()
-			start_hider_countdown()
+		# hunter arrives after their 31s waiting room, match is starting now
+		leveltimer.stop()
+		leveltimer.wait_time = 180.0
+		leveltimer.start()
+
+	timer.text = str(int(leveltimer.time_left))
 
 func show_role_label():
 	var label = Label.new()
@@ -36,38 +45,6 @@ func show_role_label():
 	tween.tween_property(label, "modulate:a", 0.0, 1.0)
 	await tween.finished
 	label.queue_free()
-
-func start_hider_countdown():
-	var label = Label.new()
-	label.name = "HunterCountdown"
-	label.add_theme_font_size_override("font_size", 24)
-	label.set_anchors_preset(Control.PRESET_CENTER_TOP)
-	label.position = Vector2(-200, 60)
-	label.modulate = Color(1, 0.5, 0.5)
-	$UI.add_child(label)
-	for i in range(30, 0, -1):
-		label.text = "Hunter spawns in: " + str(i)
-		await get_tree().create_timer(1.0).timeout
-	label.text = "Hunter has spawned! Hide!"
-	await get_tree().create_timer(2.0).timeout
-	label.queue_free()
-
-@rpc("any_peer", "call_remote", "reliable")
-func notify_server_ready():
-	var id = multiplayer.get_remote_sender_id()
-	spawn_player(id)
-	spawn_player_rpc.rpc(id)
-	spawn_player_rpc.rpc_id(id, id)
-	for child in get_children():
-		if not child is CharacterBody2D:
-			continue
-		var existing_id = int(child.name)
-		if existing_id != id:
-			spawn_player_rpc.rpc_id(id, existing_id)
-
-@rpc("any_peer", "call_remote", "reliable")
-func spawn_player_rpc(id: int):
-	spawn_player(id)
 
 func spawn_player(id: int):
 	if has_node(str(id)):
@@ -85,16 +62,16 @@ func remove_player(id: int):
 		get_node(str(id)).queue_free()
 
 func _process(delta):
-	timer.text = str(int(leveltimer.time_left))
+	if not leveltimer.is_stopped():
+		timer.text = str(int(leveltimer.time_left))
 
 func hider_win():
+	end_game_hiders_win.rpc()
+
+@rpc("any_peer", "call_local", "reliable")
+func end_game_hiders_win():
 	get_tree().change_scene_to_file("res://hiders_win.tscn")
 
 var first_timeout = true
 func _on_level_timer_timeout() -> void:
-	if first_timeout:
-		first_timeout = false
-		$LevelTimer.wait_time = 180.0
-		$LevelTimer.start()
-	else:
-		hider_win()
+	hider_win()

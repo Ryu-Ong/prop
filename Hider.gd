@@ -4,8 +4,6 @@ const SPEED = 400.0
 
 @onready var camera = $Camera2D
 
-var last_position = Vector2.ZERO
-
 func _ready():
 	camera.enabled = is_multiplayer_authority()
 	collision_layer = 2
@@ -16,12 +14,19 @@ func _physics_process(delta: float) -> void:
 		var direction = Input.get_vector("hider_left", "hider_right", "hider_up", "hider_down")
 		velocity = direction * SPEED
 		move_and_slide()
-	var move_delta = position - last_position
-	last_position = position
+		broadcast_position.rpc(position)
 
+@rpc("authority", "call_remote", "unreliable_ordered")
+func broadcast_position(pos: Vector2):
+	position = pos
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
+	# only the hider's own machine decides if they got hit
+	if not is_multiplayer_authority():
+		return
 	if area.name == "Baton":
-		queue_free()
-		get_tree().change_scene_to_file("res://hunters_win.tscn")
-	pass # Replace with function body.
+		die.rpc()
+
+@rpc("authority", "call_local", "reliable")
+func die():
+	get_tree().change_scene_to_file("res://hunters_win.tscn")

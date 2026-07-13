@@ -2,31 +2,30 @@ extends Node2D
 
 @onready var baton = $Baton
 @onready var hitbox = $Baton/CollisionShape2D
+
 var canHit = true
 
-
-
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	
-	baton.visible = false 
+	baton.visible = false
 	baton.monitoring = false
 	hitbox.disabled = true
-	if Input.is_action_pressed("Baton"):
-		print("Baton")
-	pass # Replace with function body.
-
 
 func _physics_process(delta: float) -> void:
-
+	# only the hunter who owns this controls the attack
+	if not is_multiplayer_authority():
+		return
 	look_at(get_global_mouse_position())
+	broadcast_rotation.rpc(rotation)
 	if Input.is_action_pressed("Baton"):
-		Fire()
-		print("fire")
+		fire.rpc()
 
-func Fire():
+@rpc("authority", "call_remote", "unreliable_ordered")
+func broadcast_rotation(rot: float):
+	rotation = rot
+
+@rpc("authority", "call_local", "reliable")
+func fire():
 	if canHit:
-
 		canHit = false
 		hitbox.disabled = false
 		baton.visible = true
@@ -36,4 +35,3 @@ func Fire():
 		baton.monitoring = false
 		hitbox.disabled = true
 		canHit = true
-		
