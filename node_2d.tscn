@@ -100,156 +100,309 @@ scale = Vector2(0.6, 0.6)
 position = Vector2(175, -219)
 scale = Vector2(0.6, 0.6)
 
-[node name="Fence Front" type="Node" parent="." unique_id=301797909]
+[node name="Fence walls" type="Node" parent="." unique_id=1886482213]
 
-[node name="FenceFront" parent="Fence Front" unique_id=1723082434 instance=ExtResource("12_0h7mo")]
+[node name="Fence Front" type="Node" parent="Fence walls" unique_id=301797909]
+
+[node name="FenceFront" parent="Fence walls/Fence Front" unique_id=1723082434 instance=ExtResource("12_0h7mo")]
 position = Vector2(-1504, -1632)
 
-[node name="FenceFront2" parent="Fence Front" unique_id=1557799546 instance=ExtResource("12_0h7mo")]
+[node name="FenceFront2" parent="Fence walls/Fence Front" unique_id=1557799546 instance=ExtResource("12_0h7mo")]
 position = Vector2(-1376, -1632)
 
-[node name="FenceFront3" parent="Fence Front" unique_id=58851584 instance=ExtResource("12_0h7mo")]
+[node name="FenceFront3" parent="Fence walls/Fence Front" unique_id=58851584 instance=ExtResource("12_0h7mo")]
 position = Vector2(-1248, -1632)
 
-[node name="FenceFront4" parent="Fence Front" unique_id=1852356243 instance=ExtResource("12_0h7mo")]
+[node name="FenceFront4" parent="Fence walls/Fence Front" unique_id=1852356243 instance=ExtResource("12_0h7mo")]
 position = Vector2(-1120, -1632)
 
-[node name="FenceFront5" parent="Fence Front" unique_id=318297059 instance=ExtResource("12_0h7mo")]
+[node name="FenceFront5" parent="Fence walls/Fence Front" unique_id=318297059 instance=ExtResource("12_0h7mo")]
 position = Vector2(-992, -1632)
 
-[node name="FenceFront6" parent="Fence Front" unique_id=18332364 instance=ExtResource("12_0h7mo")]
+[node name="FenceFront6" parent="Fence walls/Fence Front" unique_id=18332364 instance=ExtResource("12_0h7mo")]
 position = Vector2(-864, -1632)
 
-[node name="FenceFront7" parent="Fence Front" unique_id=21788978 instance=ExtResource("12_0h7mo")]
+[node name="FenceFront7" parent="Fence walls/Fence Front" unique_id=21788978 instance=ExtResource("12_0h7mo")]
 position = Vector2(-736, -1632)
 
-[node name="FenceFront8" parent="Fence Front" unique_id=1130341639 instance=ExtResource("12_0h7mo")]
+[node name="FenceFront8" parent="Fence walls/Fence Front" unique_id=1130341639 instance=ExtResource("12_0h7mo")]
 position = Vector2(-608, -1632)
 
-[node name="FenceFront9" parent="Fence Front" unique_id=1756529731 instance=ExtResource("12_0h7mo")]
+[node name="FenceFront9" parent="Fence walls/Fence Front" unique_id=1756529731 instance=ExtResource("12_0h7mo")]
 position = Vector2(-480, -1632)
 
-[node name="FenceFront10" parent="Fence Front" unique_id=1815166555 instance=ExtResource("12_0h7mo")]
+[node name="FenceFront10" parent="Fence walls/Fence Front" unique_id=1815166555 instance=ExtResource("12_0h7mo")]
 position = Vector2(-352, -1632)
 
-[node name="FenceFront11" parent="Fence Front" unique_id=794896618 instance=ExtResource("12_0h7mo")]
+[node name="FenceFront11" parent="Fence walls/Fence Front" unique_id=794896618 instance=ExtResource("12_0h7mo")]
 position = Vector2(-224, -1632)
 
-[node name="FenceFront12" parent="Fence Front" unique_id=901293761 instance=ExtResource("12_0h7mo")]
+[node name="FenceFront12" parent="Fence walls/Fence Front" unique_id=901293761 instance=ExtResource("12_0h7mo")]
 position = Vector2(-96, -1632)
 
-[node name="FenceFront13" parent="Fence Front" unique_id=1088302393 instance=ExtResource("12_0h7mo")]
+[node name="FenceFront13" parent="Fence walls/Fence Front" unique_id=1088302393 instance=ExtResource("12_0h7mo")]
 position = Vector2(32, -1632)
 
-[node name="FenceFront14" parent="Fence Front" unique_id=913048984 instance=ExtResource("12_0h7mo")]
+[node name="FenceFront14" parent="Fence walls/Fence Front" unique_id=913048984 instance=ExtResource("12_0h7mo")]
 position = Vector2(160, -1632)
 
-[node name="FenceFront15" parent="Fence Front" unique_id=1337260732 instance=ExtResource("12_0h7mo")]
+[node name="FenceFront15" parent="Fence walls/Fence Front" unique_id=1337260732 instance=ExtResource("12_0h7mo")]
 position = Vector2(288, -1632)
 
-[node name="FenceFront16" parent="Fence Front" unique_id=2003503312 instance=ExtResource("12_0h7mo")]
+[node name="FenceFront16" parent="Fence walls/Fence Front" unique_id=2003503312 instance=ExtResource("12_0h7mo")]
 position = Vector2(416, -1632)
 
-[node name="FenceFront17" parent="Fence Front" unique_id=611522694 instance=ExtResource("12_0h7mo")]
+[node name="FenceFront17" parent="Fence walls/Fence Front" unique_id=611522694 instance=ExtResource("12_0h7mo")]
 position = Vector2(544, -1632)
 
-[node name="FenceFront18" parent="Fence Front" unique_id=1396105628 instance=ExtResource("12_0h7mo")]
+[node name="FenceFront18" parent="Fence walls/Fence Front" unique_id=1396105628 instance=ExtResource("12_0h7mo")]
 position = Vector2(672, -1632)
 
-[node name="FenceFront19" parent="Fence Front" unique_id=2108503318 instance=ExtResource("12_0h7mo")]
+[node name="FenceFront19" parent="Fence walls/Fence Front" unique_id=2108503318 instance=ExtResource("12_0h7mo")]
 position = Vector2(800, -1632)
 
-[node name="FenceFront20" parent="Fence Front" unique_id=2066973006 instance=ExtResource("12_0h7mo")]
+[node name="FenceFront20" parent="Fence walls/Fence Front" unique_id=2066973006 instance=ExtResource("12_0h7mo")]
 position = Vector2(928, -1632)
 
-[node name="FenceFront21" parent="Fence Front" unique_id=1004770191 instance=ExtResource("12_0h7mo")]
+[node name="FenceFront21" parent="Fence walls/Fence Front" unique_id=1004770191 instance=ExtResource("12_0h7mo")]
 position = Vector2(1056, -1632)
 
-[node name="FenceFront22" parent="Fence Front" unique_id=1014497462 instance=ExtResource("12_0h7mo")]
+[node name="FenceFront22" parent="Fence walls/Fence Front" unique_id=1014497462 instance=ExtResource("12_0h7mo")]
 position = Vector2(1184, -1632)
 
-[node name="FenceFront23" parent="Fence Front" unique_id=1136492751 instance=ExtResource("12_0h7mo")]
+[node name="FenceFront23" parent="Fence walls/Fence Front" unique_id=1136492751 instance=ExtResource("12_0h7mo")]
 position = Vector2(1312, -1632)
 
-[node name="FenceFront24" parent="Fence Front" unique_id=1770062767 instance=ExtResource("12_0h7mo")]
+[node name="FenceFront24" parent="Fence walls/Fence Front" unique_id=1770062767 instance=ExtResource("12_0h7mo")]
 position = Vector2(1440, -1632)
 
-[node name="Fence Left" type="Node" parent="." unique_id=155792300]
+[node name="Fence Left" type="Node" parent="Fence walls" unique_id=155792300]
 
-[node name="FenceLeft" parent="Fence Left" unique_id=935924741 instance=ExtResource("13_0h7mo")]
+[node name="FenceLeft" parent="Fence walls/Fence Left" unique_id=935924741 instance=ExtResource("13_0h7mo")]
 position = Vector2(-1632, -1505)
 
-[node name="FenceLeft2" parent="Fence Left" unique_id=734542398 instance=ExtResource("13_0h7mo")]
+[node name="FenceLeft2" parent="Fence walls/Fence Left" unique_id=734542398 instance=ExtResource("13_0h7mo")]
 position = Vector2(-1632, -1377)
 
-[node name="FenceLeft3" parent="Fence Left" unique_id=1567890165 instance=ExtResource("13_0h7mo")]
+[node name="FenceLeft3" parent="Fence walls/Fence Left" unique_id=1567890165 instance=ExtResource("13_0h7mo")]
 position = Vector2(-1632, -1249)
 
-[node name="FenceLeft4" parent="Fence Left" unique_id=847572728 instance=ExtResource("13_0h7mo")]
+[node name="FenceLeft4" parent="Fence walls/Fence Left" unique_id=847572728 instance=ExtResource("13_0h7mo")]
 position = Vector2(-1632, -1121)
 
-[node name="FenceLeft5" parent="Fence Left" unique_id=1178445698 instance=ExtResource("13_0h7mo")]
+[node name="FenceLeft5" parent="Fence walls/Fence Left" unique_id=1178445698 instance=ExtResource("13_0h7mo")]
 position = Vector2(-1632, -993)
 
-[node name="FenceLeft6" parent="Fence Left" unique_id=684755855 instance=ExtResource("13_0h7mo")]
+[node name="FenceLeft6" parent="Fence walls/Fence Left" unique_id=684755855 instance=ExtResource("13_0h7mo")]
 position = Vector2(-1632, -865)
 
-[node name="FenceLeft7" parent="Fence Left" unique_id=926498473 instance=ExtResource("13_0h7mo")]
+[node name="FenceLeft7" parent="Fence walls/Fence Left" unique_id=926498473 instance=ExtResource("13_0h7mo")]
 position = Vector2(-1632, -736)
 
-[node name="FenceLeft8" parent="Fence Left" unique_id=1495603693 instance=ExtResource("13_0h7mo")]
+[node name="FenceLeft8" parent="Fence walls/Fence Left" unique_id=1495603693 instance=ExtResource("13_0h7mo")]
 position = Vector2(-1632, -608)
 
-[node name="FenceLeft9" parent="Fence Left" unique_id=2002052006 instance=ExtResource("13_0h7mo")]
+[node name="FenceLeft9" parent="Fence walls/Fence Left" unique_id=2002052006 instance=ExtResource("13_0h7mo")]
 position = Vector2(-1632, -480)
 
-[node name="FenceLeft10" parent="Fence Left" unique_id=1938333219 instance=ExtResource("13_0h7mo")]
+[node name="FenceLeft10" parent="Fence walls/Fence Left" unique_id=1938333219 instance=ExtResource("13_0h7mo")]
 position = Vector2(-1632, -352)
 
-[node name="FenceLeft11" parent="Fence Left" unique_id=762011924 instance=ExtResource("13_0h7mo")]
+[node name="FenceLeft11" parent="Fence walls/Fence Left" unique_id=762011924 instance=ExtResource("13_0h7mo")]
 position = Vector2(-1632, -224)
 
-[node name="FenceLeft12" parent="Fence Left" unique_id=1098658034 instance=ExtResource("13_0h7mo")]
+[node name="FenceLeft12" parent="Fence walls/Fence Left" unique_id=1098658034 instance=ExtResource("13_0h7mo")]
 position = Vector2(-1632, -96)
 
-[node name="FenceLeft13" parent="Fence Left" unique_id=77979167 instance=ExtResource("13_0h7mo")]
+[node name="FenceLeft13" parent="Fence walls/Fence Left" unique_id=77979167 instance=ExtResource("13_0h7mo")]
 position = Vector2(-1632, 32)
 
-[node name="FenceLeft14" parent="Fence Left" unique_id=749145839 instance=ExtResource("13_0h7mo")]
+[node name="FenceLeft14" parent="Fence walls/Fence Left" unique_id=749145839 instance=ExtResource("13_0h7mo")]
 position = Vector2(-1632, 160)
 
-[node name="FenceLeft15" parent="Fence Left" unique_id=214407616 instance=ExtResource("13_0h7mo")]
+[node name="FenceLeft15" parent="Fence walls/Fence Left" unique_id=214407616 instance=ExtResource("13_0h7mo")]
 position = Vector2(-1632, 288)
 
-[node name="FenceLeft16" parent="Fence Left" unique_id=1868991408 instance=ExtResource("13_0h7mo")]
+[node name="FenceLeft16" parent="Fence walls/Fence Left" unique_id=1868991408 instance=ExtResource("13_0h7mo")]
 position = Vector2(-1632, 416)
 
-[node name="FenceLeft17" parent="Fence Left" unique_id=26283045 instance=ExtResource("13_0h7mo")]
+[node name="FenceLeft17" parent="Fence walls/Fence Left" unique_id=26283045 instance=ExtResource("13_0h7mo")]
 position = Vector2(-1632, 544)
 
-[node name="FenceLeft18" parent="Fence Left" unique_id=1738827697 instance=ExtResource("13_0h7mo")]
+[node name="FenceLeft18" parent="Fence walls/Fence Left" unique_id=1738827697 instance=ExtResource("13_0h7mo")]
 position = Vector2(-1632, 672)
 
-[node name="FenceLeft19" parent="Fence Left" unique_id=1341627023 instance=ExtResource("13_0h7mo")]
+[node name="FenceLeft19" parent="Fence walls/Fence Left" unique_id=1341627023 instance=ExtResource("13_0h7mo")]
 position = Vector2(-1632, 800)
 
-[node name="FenceLeft20" parent="Fence Left" unique_id=947598854 instance=ExtResource("13_0h7mo")]
+[node name="FenceLeft20" parent="Fence walls/Fence Left" unique_id=947598854 instance=ExtResource("13_0h7mo")]
 position = Vector2(-1632, 928)
 
-[node name="FenceLeft21" parent="Fence Left" unique_id=119061865 instance=ExtResource("13_0h7mo")]
+[node name="FenceLeft21" parent="Fence walls/Fence Left" unique_id=119061865 instance=ExtResource("13_0h7mo")]
 position = Vector2(-1632, 1056)
 
-[node name="FenceLeft22" parent="Fence Left" unique_id=1703118948 instance=ExtResource("13_0h7mo")]
+[node name="FenceLeft22" parent="Fence walls/Fence Left" unique_id=1703118948 instance=ExtResource("13_0h7mo")]
 position = Vector2(-1632, 1184)
 
-[node name="FenceLeft23" parent="Fence Left" unique_id=1514665392 instance=ExtResource("13_0h7mo")]
+[node name="FenceLeft23" parent="Fence walls/Fence Left" unique_id=1514665392 instance=ExtResource("13_0h7mo")]
 position = Vector2(-1632, 1312)
 
-[node name="FenceLeft24" parent="Fence Left" unique_id=2046138245 instance=ExtResource("13_0h7mo")]
+[node name="FenceLeft24" parent="Fence walls/Fence Left" unique_id=2046138245 instance=ExtResource("13_0h7mo")]
 position = Vector2(-1632, 1440)
 
-[node name="FenceLeft25" parent="Fence Left" unique_id=2028809022 instance=ExtResource("13_0h7mo")]
+[node name="FenceLeft25" parent="Fence walls/Fence Left" unique_id=2028809022 instance=ExtResource("13_0h7mo")]
 position = Vector2(-1631, -1575)
+
+[node name="Fence Right" type="Node" parent="Fence walls" unique_id=1835880688]
+
+[node name="fence_right" parent="Fence walls/Fence Right" unique_id=839078391 instance=ExtResource("15_d2bti")]
+position = Vector2(1568, -1568)
+
+[node name="fence_right2" parent="Fence walls/Fence Right" unique_id=1117974685 instance=ExtResource("15_d2bti")]
+position = Vector2(1568, -1440)
+
+[node name="fence_right3" parent="Fence walls/Fence Right" unique_id=1965615830 instance=ExtResource("15_d2bti")]
+position = Vector2(1568, -1312)
+
+[node name="fence_right4" parent="Fence walls/Fence Right" unique_id=862546611 instance=ExtResource("15_d2bti")]
+position = Vector2(1568, -1184)
+
+[node name="fence_right5" parent="Fence walls/Fence Right" unique_id=595705386 instance=ExtResource("15_d2bti")]
+position = Vector2(1568, -1056)
+
+[node name="fence_right6" parent="Fence walls/Fence Right" unique_id=1126656700 instance=ExtResource("15_d2bti")]
+position = Vector2(1568, -928)
+
+[node name="fence_right7" parent="Fence walls/Fence Right" unique_id=403652681 instance=ExtResource("15_d2bti")]
+position = Vector2(1568, -800)
+
+[node name="fence_right8" parent="Fence walls/Fence Right" unique_id=431552576 instance=ExtResource("15_d2bti")]
+position = Vector2(1568, -672)
+
+[node name="fence_right9" parent="Fence walls/Fence Right" unique_id=616163993 instance=ExtResource("15_d2bti")]
+position = Vector2(1568, -544)
+
+[node name="fence_right10" parent="Fence walls/Fence Right" unique_id=1953795893 instance=ExtResource("15_d2bti")]
+position = Vector2(1568, -416)
+
+[node name="fence_right11" parent="Fence walls/Fence Right" unique_id=512686493 instance=ExtResource("15_d2bti")]
+position = Vector2(1568, -288)
+
+[node name="fence_right12" parent="Fence walls/Fence Right" unique_id=1341917940 instance=ExtResource("15_d2bti")]
+position = Vector2(1568, -160)
+
+[node name="fence_right13" parent="Fence walls/Fence Right" unique_id=823145984 instance=ExtResource("15_d2bti")]
+position = Vector2(1568, -32)
+
+[node name="fence_right14" parent="Fence walls/Fence Right" unique_id=1515191443 instance=ExtResource("15_d2bti")]
+position = Vector2(1568, 96)
+
+[node name="fence_right15" parent="Fence walls/Fence Right" unique_id=1254049659 instance=ExtResource("15_d2bti")]
+position = Vector2(1568, 224)
+
+[node name="fence_right16" parent="Fence walls/Fence Right" unique_id=935130600 instance=ExtResource("15_d2bti")]
+position = Vector2(1568, 352)
+
+[node name="fence_right17" parent="Fence walls/Fence Right" unique_id=1614437247 instance=ExtResource("15_d2bti")]
+position = Vector2(1568, 480)
+
+[node name="fence_right18" parent="Fence walls/Fence Right" unique_id=1423301611 instance=ExtResource("15_d2bti")]
+position = Vector2(1568, 608)
+
+[node name="fence_right19" parent="Fence walls/Fence Right" unique_id=15493072 instance=ExtResource("15_d2bti")]
+position = Vector2(1568, 736)
+
+[node name="fence_right20" parent="Fence walls/Fence Right" unique_id=1572701015 instance=ExtResource("15_d2bti")]
+position = Vector2(1568, 864)
+
+[node name="fence_right21" parent="Fence walls/Fence Right" unique_id=1529750764 instance=ExtResource("15_d2bti")]
+position = Vector2(1568, 992)
+
+[node name="fence_right22" parent="Fence walls/Fence Right" unique_id=863882660 instance=ExtResource("15_d2bti")]
+position = Vector2(1568, 1120)
+
+[node name="fence_right23" parent="Fence walls/Fence Right" unique_id=1282129444 instance=ExtResource("15_d2bti")]
+position = Vector2(1568, 1248)
+
+[node name="fence_right24" parent="Fence walls/Fence Right" unique_id=209148714 instance=ExtResource("15_d2bti")]
+position = Vector2(1568, 1376)
+
+[node name="fence_right25" parent="Fence walls/Fence Right" unique_id=835913393 instance=ExtResource("15_d2bti")]
+position = Vector2(1568, 1440)
+
+[node name="Fence Front2" type="Node" parent="Fence walls" unique_id=628833670]
+
+[node name="FenceFront" parent="Fence walls/Fence Front2" unique_id=1030542622 instance=ExtResource("12_0h7mo")]
+position = Vector2(1440, 1488)
+
+[node name="FenceFront2" parent="Fence walls/Fence Front2" unique_id=593639491 instance=ExtResource("12_0h7mo")]
+position = Vector2(1312, 1488)
+
+[node name="FenceFront3" parent="Fence walls/Fence Front2" unique_id=1032797413 instance=ExtResource("12_0h7mo")]
+position = Vector2(1184, 1488)
+
+[node name="FenceFront4" parent="Fence walls/Fence Front2" unique_id=908287876 instance=ExtResource("12_0h7mo")]
+position = Vector2(1056, 1488)
+
+[node name="FenceFront5" parent="Fence walls/Fence Front2" unique_id=999019792 instance=ExtResource("12_0h7mo")]
+position = Vector2(928, 1488)
+
+[node name="FenceFront6" parent="Fence walls/Fence Front2" unique_id=151775549 instance=ExtResource("12_0h7mo")]
+position = Vector2(800, 1488)
+
+[node name="FenceFront7" parent="Fence walls/Fence Front2" unique_id=815101440 instance=ExtResource("12_0h7mo")]
+position = Vector2(672, 1488)
+
+[node name="FenceFront8" parent="Fence walls/Fence Front2" unique_id=988856976 instance=ExtResource("12_0h7mo")]
+position = Vector2(544, 1488)
+
+[node name="FenceFront9" parent="Fence walls/Fence Front2" unique_id=444576373 instance=ExtResource("12_0h7mo")]
+position = Vector2(416, 1488)
+
+[node name="FenceFront10" parent="Fence walls/Fence Front2" unique_id=97935638 instance=ExtResource("12_0h7mo")]
+position = Vector2(288, 1488)
+
+[node name="FenceFront11" parent="Fence walls/Fence Front2" unique_id=587232566 instance=ExtResource("12_0h7mo")]
+position = Vector2(160, 1488)
+
+[node name="FenceFront12" parent="Fence walls/Fence Front2" unique_id=648969632 instance=ExtResource("12_0h7mo")]
+position = Vector2(32, 1488)
+
+[node name="FenceFront13" parent="Fence walls/Fence Front2" unique_id=1463956503 instance=ExtResource("12_0h7mo")]
+position = Vector2(-96, 1488)
+
+[node name="FenceFront14" parent="Fence walls/Fence Front2" unique_id=1451329484 instance=ExtResource("12_0h7mo")]
+position = Vector2(-224, 1488)
+
+[node name="FenceFront15" parent="Fence walls/Fence Front2" unique_id=1591232906 instance=ExtResource("12_0h7mo")]
+position = Vector2(-352, 1488)
+
+[node name="FenceFront16" parent="Fence walls/Fence Front2" unique_id=84719178 instance=ExtResource("12_0h7mo")]
+position = Vector2(-480, 1488)
+
+[node name="FenceFront17" parent="Fence walls/Fence Front2" unique_id=16433784 instance=ExtResource("12_0h7mo")]
+position = Vector2(-608, 1488)
+
+[node name="FenceFront18" parent="Fence walls/Fence Front2" unique_id=1254159822 instance=ExtResource("12_0h7mo")]
+position = Vector2(-736, 1488)
+
+[node name="FenceFront19" parent="Fence walls/Fence Front2" unique_id=1839411827 instance=ExtResource("12_0h7mo")]
+position = Vector2(-864, 1488)
+
+[node name="FenceFront20" parent="Fence walls/Fence Front2" unique_id=1765075034 instance=ExtResource("12_0h7mo")]
+position = Vector2(-992, 1488)
+
+[node name="FenceFront21" parent="Fence walls/Fence Front2" unique_id=220193330 instance=ExtResource("12_0h7mo")]
+position = Vector2(-1120, 1488)
+
+[node name="FenceFront22" parent="Fence walls/Fence Front2" unique_id=692762764 instance=ExtResource("12_0h7mo")]
+position = Vector2(-1248, 1488)
+
+[node name="FenceFront23" parent="Fence walls/Fence Front2" unique_id=1937433853 instance=ExtResource("12_0h7mo")]
+position = Vector2(-1376, 1488)
+
+[node name="FenceFront24" parent="Fence walls/Fence Front2" unique_id=367177532 instance=ExtResource("12_0h7mo")]
+position = Vector2(-1504, 1488)
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=223031443]
 
@@ -274,153 +427,6 @@ grow_horizontal = 0
 layout_mode = 2
 
 [node name="Timer" type="Timer" parent="." unique_id=1361698979]
-
-[node name="fence_right" parent="." unique_id=839078391 instance=ExtResource("15_d2bti")]
-position = Vector2(1568, -1568)
-
-[node name="fence_right2" parent="." unique_id=1117974685 instance=ExtResource("15_d2bti")]
-position = Vector2(1568, -1440)
-
-[node name="fence_right3" parent="." unique_id=1965615830 instance=ExtResource("15_d2bti")]
-position = Vector2(1568, -1312)
-
-[node name="fence_right4" parent="." unique_id=862546611 instance=ExtResource("15_d2bti")]
-position = Vector2(1568, -1184)
-
-[node name="fence_right5" parent="." unique_id=595705386 instance=ExtResource("15_d2bti")]
-position = Vector2(1568, -1056)
-
-[node name="fence_right6" parent="." unique_id=1126656700 instance=ExtResource("15_d2bti")]
-position = Vector2(1568, -928)
-
-[node name="fence_right7" parent="." unique_id=403652681 instance=ExtResource("15_d2bti")]
-position = Vector2(1568, -800)
-
-[node name="fence_right8" parent="." unique_id=431552576 instance=ExtResource("15_d2bti")]
-position = Vector2(1568, -672)
-
-[node name="fence_right9" parent="." unique_id=616163993 instance=ExtResource("15_d2bti")]
-position = Vector2(1568, -544)
-
-[node name="fence_right10" parent="." unique_id=1953795893 instance=ExtResource("15_d2bti")]
-position = Vector2(1568, -416)
-
-[node name="fence_right11" parent="." unique_id=512686493 instance=ExtResource("15_d2bti")]
-position = Vector2(1568, -288)
-
-[node name="fence_right12" parent="." unique_id=1341917940 instance=ExtResource("15_d2bti")]
-position = Vector2(1568, -160)
-
-[node name="fence_right13" parent="." unique_id=823145984 instance=ExtResource("15_d2bti")]
-position = Vector2(1568, -32)
-
-[node name="fence_right14" parent="." unique_id=1515191443 instance=ExtResource("15_d2bti")]
-position = Vector2(1568, 96)
-
-[node name="fence_right15" parent="." unique_id=1254049659 instance=ExtResource("15_d2bti")]
-position = Vector2(1568, 224)
-
-[node name="fence_right16" parent="." unique_id=935130600 instance=ExtResource("15_d2bti")]
-position = Vector2(1568, 352)
-
-[node name="fence_right17" parent="." unique_id=1614437247 instance=ExtResource("15_d2bti")]
-position = Vector2(1568, 480)
-
-[node name="fence_right18" parent="." unique_id=1423301611 instance=ExtResource("15_d2bti")]
-position = Vector2(1568, 608)
-
-[node name="fence_right19" parent="." unique_id=15493072 instance=ExtResource("15_d2bti")]
-position = Vector2(1568, 736)
-
-[node name="fence_right20" parent="." unique_id=1572701015 instance=ExtResource("15_d2bti")]
-position = Vector2(1568, 864)
-
-[node name="fence_right21" parent="." unique_id=1529750764 instance=ExtResource("15_d2bti")]
-position = Vector2(1568, 992)
-
-[node name="fence_right22" parent="." unique_id=863882660 instance=ExtResource("15_d2bti")]
-position = Vector2(1568, 1120)
-
-[node name="fence_right23" parent="." unique_id=1282129444 instance=ExtResource("15_d2bti")]
-position = Vector2(1568, 1248)
-
-[node name="fence_right24" parent="." unique_id=209148714 instance=ExtResource("15_d2bti")]
-position = Vector2(1568, 1376)
-
-[node name="fence_right25" parent="." unique_id=835913393 instance=ExtResource("15_d2bti")]
-position = Vector2(1568, 1440)
-
-[node name="FenceFront" parent="." unique_id=1030542622 instance=ExtResource("12_0h7mo")]
-position = Vector2(1440, 1488)
-
-[node name="FenceFront2" parent="." unique_id=593639491 instance=ExtResource("12_0h7mo")]
-position = Vector2(1312, 1488)
-
-[node name="FenceFront3" parent="." unique_id=1032797413 instance=ExtResource("12_0h7mo")]
-position = Vector2(1184, 1488)
-
-[node name="FenceFront4" parent="." unique_id=908287876 instance=ExtResource("12_0h7mo")]
-position = Vector2(1056, 1488)
-
-[node name="FenceFront5" parent="." unique_id=999019792 instance=ExtResource("12_0h7mo")]
-position = Vector2(928, 1488)
-
-[node name="FenceFront6" parent="." unique_id=151775549 instance=ExtResource("12_0h7mo")]
-position = Vector2(800, 1488)
-
-[node name="FenceFront7" parent="." unique_id=815101440 instance=ExtResource("12_0h7mo")]
-position = Vector2(672, 1488)
-
-[node name="FenceFront8" parent="." unique_id=988856976 instance=ExtResource("12_0h7mo")]
-position = Vector2(544, 1488)
-
-[node name="FenceFront9" parent="." unique_id=444576373 instance=ExtResource("12_0h7mo")]
-position = Vector2(416, 1488)
-
-[node name="FenceFront10" parent="." unique_id=97935638 instance=ExtResource("12_0h7mo")]
-position = Vector2(288, 1488)
-
-[node name="FenceFront11" parent="." unique_id=587232566 instance=ExtResource("12_0h7mo")]
-position = Vector2(160, 1488)
-
-[node name="FenceFront12" parent="." unique_id=648969632 instance=ExtResource("12_0h7mo")]
-position = Vector2(32, 1488)
-
-[node name="FenceFront13" parent="." unique_id=1463956503 instance=ExtResource("12_0h7mo")]
-position = Vector2(-96, 1488)
-
-[node name="FenceFront14" parent="." unique_id=1451329484 instance=ExtResource("12_0h7mo")]
-position = Vector2(-224, 1488)
-
-[node name="FenceFront15" parent="." unique_id=1591232906 instance=ExtResource("12_0h7mo")]
-position = Vector2(-352, 1488)
-
-[node name="FenceFront16" parent="." unique_id=84719178 instance=ExtResource("12_0h7mo")]
-position = Vector2(-480, 1488)
-
-[node name="FenceFront17" parent="." unique_id=16433784 instance=ExtResource("12_0h7mo")]
-position = Vector2(-608, 1488)
-
-[node name="FenceFront18" parent="." unique_id=1254159822 instance=ExtResource("12_0h7mo")]
-position = Vector2(-736, 1488)
-
-[node name="FenceFront19" parent="." unique_id=1839411827 instance=ExtResource("12_0h7mo")]
-position = Vector2(-864, 1488)
-
-[node name="FenceFront20" parent="." unique_id=1765075034 instance=ExtResource("12_0h7mo")]
-position = Vector2(-992, 1488)
-
-[node name="FenceFront21" parent="." unique_id=220193330 instance=ExtResource("12_0h7mo")]
-position = Vector2(-1120, 1488)
-
-[node name="FenceFront22" parent="." unique_id=692762764 instance=ExtResource("12_0h7mo")]
-position = Vector2(-1248, 1488)
-
-[node name="FenceFront23" parent="." unique_id=1937433853 instance=ExtResource("12_0h7mo")]
-position = Vector2(-1376, 1488)
-
-[node name="FenceFront24" parent="." unique_id=367177532 instance=ExtResource("12_0h7mo")]
-position = Vector2(-1504, 1488)
 
 [node name="FenceLeft" parent="." unique_id=67949298 instance=ExtResource("13_0h7mo")]
 position = Vector2(-1632, 1488)

@@ -3,6 +3,14 @@ extends CharacterBody2D
 const SPEED = 400.0
 
 @onready var camera = $Camera2D
+@onready var sprite = $Sprite2D
+@onready var collision = $CollisionShape2D
+
+var prop_textures = {
+	
+	"Tree": preload("res://props/TestTree.tscn")
+	
+}
 
 func _ready():
 	camera.enabled = is_multiplayer_authority()
@@ -27,6 +35,15 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.name == "Baton":
 		die.rpc()
 
+
+func transform(prop: Node):
+	var prop_sprite = prop.get_node("Area2D/Sprite2D")
+	var prop_collision = prop.get_node("CollisionShape2D")
+
+	sprite.texture = prop_sprite.texture
+	sprite.scale = prop_sprite.scale
+	collision.shape = prop_collision.shape.duplicate()
+	
 @rpc("authority", "call_local", "reliable")
 func die():
 	get_tree().change_scene_to_file("res://hunters_win.tscn")

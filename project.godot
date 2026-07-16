@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 Global="*uid://dub3aka5sbue4"
 
+[global_group]
+
+Player=""
+
 [input]
 
 hunter_up={
