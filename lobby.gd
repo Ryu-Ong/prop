@@ -48,6 +48,7 @@ func _on_start_pressed():
 	if not multiplayer.is_server():
 		return
 	Global.in_game_peers.clear()
+	Global.dead_hiders.clear()
 	var all_peers = [multiplayer.get_unique_id()] + connected_peers
 	var hunter_id = all_peers[randi() % all_peers.size()]
 	var role_map = {}

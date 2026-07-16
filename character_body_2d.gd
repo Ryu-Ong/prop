@@ -6,17 +6,26 @@ const SPEED = 500.0
 @onready var camera = $Camera2D
 
 var last_position = Vector2.ZERO
+var is_stunned = false
+var local_only = false
 
 func _ready():
+	$FovOverlay.visible = is_multiplayer_authority()
 	camera.enabled = is_multiplayer_authority()
 	collision_layer = 2
 	collision_mask = 1
 
+func set_stunned(value: bool):
+	is_stunned = value
+
 func _physics_process(delta: float) -> void:
 	if is_multiplayer_authority():
-		var direction = Input.get_vector("hunter_left", "hunter_right", "hunter_up", "hunter_down")
-		velocity = direction * SPEED
-		move_and_slide()
+		if is_stunned:
+			velocity = Vector2.ZERO
+		else:
+			var direction = Input.get_vector("hunter_left", "hunter_right", "hunter_up", "hunter_down")
+			velocity = direction * SPEED
+			move_and_slide()
 		broadcast_position.rpc(position)
 
 	var move_delta = position - last_position
