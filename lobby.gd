@@ -60,7 +60,6 @@ func _on_start_pressed():
 			Global.all_roles = role_map
 		else:
 			assign_role.rpc_id(id, role_map[id], role_map)
-	# wait a moment for roles to arrive before loading
 	await get_tree().create_timer(0.3).timeout
 	load_game.rpc()
 
@@ -73,7 +72,4 @@ func assign_role(role: String, role_map: Dictionary):
 
 @rpc("authority", "call_local", "reliable")
 func load_game():
-	if Global.my_role == "hunter":
-		get_tree().change_scene_to_file("res://hunter_waiting_room.tscn")
-	else:
-		get_tree().change_scene_to_file("res://node_2d.tscn")
+	get_tree().change_scene_to_file("res://node_2d.tscn")

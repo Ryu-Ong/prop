@@ -8,10 +8,12 @@ const SPEED = 500.0
 var last_position = Vector2.ZERO
 var is_stunned = false
 var local_only = false
+var target_position = Vector2.ZERO
+var has_target = false
 
 func _ready():
-	$FovOverlay.visible = is_multiplayer_authority()
 	camera.enabled = is_multiplayer_authority()
+	$FovOverlay.visible = is_multiplayer_authority()
 	collision_layer = 2
 	collision_mask = 1
 
@@ -26,12 +28,21 @@ func _physics_process(delta: float) -> void:
 			var direction = Input.get_vector("hunter_left", "hunter_right", "hunter_up", "hunter_down")
 			velocity = direction * SPEED
 			move_and_slide()
-		broadcast_position.rpc(position)
+		if not local_only:
+			for peer_id in Global.in_game_peers:
+				if peer_id != multiplayer.get_unique_id():
+					broadcast_position.rpc_id(peer_id, position)
+	else:
+		if has_target:
+			if position.distance_to(target_position) > 500:
+				position = target_position
+			else:
+				position = position.lerp(target_position, 0.4)
 
 	var move_delta = position - last_position
 	last_position = position
 
-	if move_delta.length() < 0.1:
+	if move_delta.length() < 0.5:
 		animated_sprite.play("Sec Idle Down")
 	elif move_delta.y > 0.5:
 		animated_sprite.play("Sec Walk Down")
@@ -44,4 +55,5 @@ func _physics_process(delta: float) -> void:
 
 @rpc("authority", "call_remote", "unreliable_ordered")
 func broadcast_position(pos: Vector2):
-	position = pos
+	target_position = pos
+	has_target = true
