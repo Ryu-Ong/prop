@@ -1,14 +1,10 @@
 extends CharacterBody2D
 
 const SPEED = 400.0
-const MAP_MIN = Vector2(-2400, -2400)
-const MAP_MAX = Vector2(2400, 2400)
 
 @onready var camera = $Camera2D
 @onready var sprite = $Sprite2D
 @onready var collision = $CollisionShape2D
-@onready var minimap_dot = $MinimapLayer/MinimapBackground/PlayerDot
-@onready var minimap_bg = $MinimapLayer/MinimapBackground
 
 var is_hidden = false
 var original_texture
@@ -23,7 +19,6 @@ func _ready():
 	original_texture = sprite.texture
 	original_scale = sprite.scale
 	original_shape = collision.shape
-	$MinimapLayer.visible = is_multiplayer_authority()
 
 func _physics_process(delta: float) -> void:
 	if is_multiplayer_authority():
@@ -33,14 +28,6 @@ func _physics_process(delta: float) -> void:
 		for peer_id in Global.in_game_peers:
 			if peer_id != multiplayer.get_unique_id():
 				broadcast_position.rpc_id(peer_id, position)
-		update_minimap()
-
-func update_minimap():
-	var map_size = MAP_MAX - MAP_MIN
-	var normalized = (position - MAP_MIN) / map_size  # 0.0 to 1.0
-	normalized = normalized.clamp(Vector2(0, 0), Vector2(1, 1))
-	var minimap_size = minimap_bg.size
-	minimap_dot.position = normalized * minimap_size - minimap_dot.size / 2
 
 @rpc("authority", "call_remote", "unreliable_ordered")
 func broadcast_position(pos: Vector2):
