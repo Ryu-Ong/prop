@@ -81,4 +81,5 @@ func report_death(id: int):
 		if all_roles[pid] == "hider":
 			total_hiders += 1
 	if dead_hiders.size() >= total_hiders:
+		await get_tree().create_timer(1).timeout
 		get_tree().change_scene_to_file("res://hunters_win.tscn")

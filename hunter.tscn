@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bx2j6gwjj1yo7" path="res://asset/Security Guard Walk Right.png" id="5_1jxqw"]
 [ext_resource type="Texture2D" uid="uid://b4jxx80tas3ds" path="res://asset/Security Guard walk up.png" id="6_dw050"]
 [ext_resource type="Script" uid="uid://daucm7h2b5xj2" path="res://attack.gd" id="7_gur1f"]
-[ext_resource type="Texture2D" uid="uid://d5x51xx6n0t6" path="res://icon.svg" id="8_sx8dt"]
+[ext_resource type="Texture2D" uid="uid://ku4v4xxafg6v" path="res://asset/baton.png" id="8_oc4tt"]
 [ext_resource type="Shader" uid="uid://1dtbqj67p16e" path="res://hunter.gdshader" id="9_oc4tt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hqtel"]
@@ -212,9 +212,9 @@ position = Vector2(53, 0)
 shape = SubResource("RectangleShape2D_oc4tt")
 
 [node name="Sprite2D" type="Sprite2D" parent="Attack/Baton" unique_id=679885121]
-position = Vector2(52.5, 0)
-scale = Vector2(0.8359375, 0.046874996)
-texture = ExtResource("8_sx8dt")
+position = Vector2(67.43751, 9)
+scale = Vector2(1.6738282, 1.3125)
+texture = ExtResource("8_oc4tt")
 
 [node name="FovOverlay" type="CanvasLayer" parent="." unique_id=1019998588]
 
