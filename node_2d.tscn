@@ -841,7 +841,7 @@ position = Vector2(895, -1366)
 position = Vector2(1204, -1245)
 
 [node name="Tree13" parent="Props/Trees" unique_id=782209047 instance=ExtResource("12_x0ka3")]
-position = Vector2(910, -599)
+position = Vector2(908, -528)
 
 [node name="Tree14" parent="Props/Trees" unique_id=558470804 instance=ExtResource("12_x0ka3")]
 position = Vector2(1114, -600)
@@ -887,6 +887,102 @@ position = Vector2(711, -330)
 
 [node name="Tree28" parent="Props/Trees" unique_id=128174506 instance=ExtResource("12_x0ka3")]
 position = Vector2(372, -279)
+
+[node name="Tree29" parent="Props/Trees" unique_id=712705665 instance=ExtResource("12_x0ka3")]
+position = Vector2(1769, -710)
+
+[node name="Tree30" parent="Props/Trees" unique_id=1982786414 instance=ExtResource("12_x0ka3")]
+position = Vector2(1430, -684)
+
+[node name="Tree31" parent="Props/Trees" unique_id=1905632669 instance=ExtResource("12_x0ka3")]
+position = Vector2(1074, -1700)
+
+[node name="Tree32" parent="Props/Trees" unique_id=1113816340 instance=ExtResource("12_x0ka3")]
+position = Vector2(833, -1967)
+
+[node name="Tree33" parent="Props/Trees" unique_id=1528758230 instance=ExtResource("12_x0ka3")]
+position = Vector2(1700, -138)
+
+[node name="Tree34" parent="Props/Trees" unique_id=1848969660 instance=ExtResource("12_x0ka3")]
+position = Vector2(1881, -382)
+
+[node name="Tree35" parent="Props/Trees" unique_id=2095840929 instance=ExtResource("12_x0ka3")]
+position = Vector2(2017, -108)
+
+[node name="Tree36" parent="Props/Trees" unique_id=1195231759 instance=ExtResource("12_x0ka3")]
+position = Vector2(2273, -386)
+
+[node name="Tree37" parent="Props/Trees" unique_id=658827869 instance=ExtResource("12_x0ka3")]
+position = Vector2(669, -2248)
+
+[node name="Tree38" parent="Props/Trees" unique_id=677825724 instance=ExtResource("12_x0ka3")]
+position = Vector2(1828, -1629)
+
+[node name="Tree39" parent="Props/Trees" unique_id=781705555 instance=ExtResource("12_x0ka3")]
+position = Vector2(-880, -1915)
+
+[node name="Tree40" parent="Props/Trees" unique_id=1696725299 instance=ExtResource("12_x0ka3")]
+position = Vector2(2313, -1811)
+
+[node name="Tree41" parent="Props/Trees" unique_id=1540076580 instance=ExtResource("12_x0ka3")]
+position = Vector2(1462, -1554)
+
+[node name="Tree42" parent="Props/Trees" unique_id=589314486 instance=ExtResource("12_x0ka3")]
+position = Vector2(2007, -982)
+
+[node name="Tree43" parent="Props/Trees" unique_id=269223295 instance=ExtResource("12_x0ka3")]
+position = Vector2(2252, -1050)
+
+[node name="Tree44" parent="Props/Trees" unique_id=362452917 instance=ExtResource("12_x0ka3")]
+position = Vector2(2289, -1350)
+
+[node name="Tree45" parent="Props/Trees" unique_id=621758218 instance=ExtResource("12_x0ka3")]
+position = Vector2(474, -1774)
+
+[node name="Tree46" parent="Props/Trees" unique_id=564403478 instance=ExtResource("12_x0ka3")]
+position = Vector2(196, -1618)
+
+[node name="Tree47" parent="Props/Trees" unique_id=650018062 instance=ExtResource("12_x0ka3")]
+position = Vector2(-90, -1975)
+
+[node name="Tree48" parent="Props/Trees" unique_id=1289975961 instance=ExtResource("12_x0ka3")]
+position = Vector2(321, -2193)
+
+[node name="Tree49" parent="Props/Trees" unique_id=2021013981 instance=ExtResource("12_x0ka3")]
+position = Vector2(2311, -764)
+
+[node name="Tree50" parent="Props/Trees" unique_id=1955812375 instance=ExtResource("12_x0ka3")]
+position = Vector2(1547, -2173)
+
+[node name="Tree51" parent="Props/Trees" unique_id=1544332724 instance=ExtResource("12_x0ka3")]
+position = Vector2(1524, -1202)
+
+[node name="Tree52" parent="Props/Trees" unique_id=933853312 instance=ExtResource("12_x0ka3")]
+position = Vector2(1313, -2262)
+
+[node name="Tree53" parent="Props/Trees" unique_id=1801956103 instance=ExtResource("12_x0ka3")]
+position = Vector2(790, -1708)
+
+[node name="Tree54" parent="Props/Trees" unique_id=2019496746 instance=ExtResource("12_x0ka3")]
+position = Vector2(1142, -1967)
+
+[node name="Tree55" parent="Props/Trees" unique_id=561380721 instance=ExtResource("12_x0ka3")]
+position = Vector2(2320, -2144)
+
+[node name="Tree56" parent="Props/Trees" unique_id=1498268581 instance=ExtResource("12_x0ka3")]
+position = Vector2(982, -2078)
+
+[node name="Tree57" parent="Props/Trees" unique_id=858771957 instance=ExtResource("12_x0ka3")]
+position = Vector2(2071, -1572)
+
+[node name="Tree58" parent="Props/Trees" unique_id=723471095 instance=ExtResource("12_x0ka3")]
+position = Vector2(1846, -1980)
+
+[node name="Tree59" parent="Props/Trees" unique_id=1371905128 instance=ExtResource("12_x0ka3")]
+position = Vector2(2163, -2018)
+
+[node name="Tree60" parent="Props/Trees" unique_id=815092690 instance=ExtResource("12_x0ka3")]
+position = Vector2(2011, -2265)
 
 [node name="Flowers" type="Node" parent="Props" unique_id=292197306]
 
