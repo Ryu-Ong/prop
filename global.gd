@@ -1,9 +1,60 @@
 extends Node
 
+# ---- map / safe-zone configuration ----
+const MAP_SIZE := 4736.0                       # map is 4736 x 4736, centred on the origin
+const MAP_MIN := Vector2(-MAP_SIZE * 0.5, -MAP_SIZE * 0.5)
+const MAP_MAX := Vector2(MAP_SIZE * 0.5, MAP_SIZE * 0.5)
+
+const TILE_SIZE := 32.0
+const ZONE_RADIUS := TILE_SIZE * 5.0           # 5 tiles = 160 px
+const ZONE_EDGE_MARGIN := 0.2                  # zone centres stay 20% away from every edge
+const ZONE_COUNT := 2                          # zone assigned at 1 min and at 2 min
+const ZONE_INTERVAL := 60.0                    # seconds between reveal / deadline steps
+
 var my_role = "hider"
 var all_roles = {}
 var in_game_peers = []
 var dead_hiders = []
+
+# ---- safe-zone state (server generates, mirrored to every peer) ----
+var zones := {}              # { peer_id: [Vector2 zone_1, Vector2 zone_2] }
+var active_zone_index := -1  # -1 = no zone active yet
+
+func reset_zones() -> void:
+	zones.clear()
+	active_zone_index = -1
+
+# Rect the zone CENTRE may fall inside, so the whole circle stays clear of the edges.
+func zone_center_bounds() -> Rect2:
+	var inset := Vector2.ONE * (MAP_SIZE * ZONE_EDGE_MARGIN)
+	var lo := MAP_MIN + inset
+	var hi := MAP_MAX - inset
+	return Rect2(lo, hi - lo)
+
+func random_zone_center(rng: RandomNumberGenerator) -> Vector2:
+	var b := zone_center_bounds()
+	return Vector2(
+		rng.randf_range(b.position.x, b.end.x),
+		rng.randf_range(b.position.y, b.end.y)
+	)
+
+# The local player's currently-active zone centre, or null if none.
+func my_zone():
+	return zone_for(multiplayer.get_unique_id())
+
+func zone_for(peer_id: int):
+	if active_zone_index < 0:
+		return null
+	var list = zones.get(peer_id, [])
+	if active_zone_index >= list.size():
+		return null
+	return list[active_zone_index]
+
+func is_inside_zone(peer_id: int, pos: Vector2) -> bool:
+	var z = zone_for(peer_id)
+	if z == null:
+		return true   # no active zone -> nothing to fail
+	return pos.distance_to(z) <= ZONE_RADIUS
 
 func _ready():
 	multiplayer.peer_disconnected.connect(func(id): in_game_peers.erase(id))
