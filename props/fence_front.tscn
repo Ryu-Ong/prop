@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://47ub11h2c3iu" path="res://props/fence_front.gd" id="2_plfa0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a0367"]
-size = Vector2(128, 120)
+size = Vector2(128, 88)
 
 [node name="FenceFront" type="StaticBody2D" unique_id=1723082434]
 script = ExtResource("2_plfa0")
@@ -15,5 +15,5 @@ scale = Vector2(4, 4)
 texture = ExtResource("1_1yk8n")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=349557350]
-position = Vector2(0, 4)
+position = Vector2(0, 20)
 shape = SubResource("RectangleShape2D_a0367")
