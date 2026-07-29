@@ -1,5 +1,7 @@
 extends Node
 
+const SpectatorCamera = preload("res://spectator.gd")
+
 # ---- map / safe-zone configuration ----
 const MAP_SIZE := 4736.0                       # map is 4736 x 4736, centred on the origin
 const MAP_MIN := Vector2(-MAP_SIZE * 0.5, -MAP_SIZE * 0.5)
@@ -110,20 +112,13 @@ func report_death(id: int):
 	var scene = get_tree().current_scene
 	if scene and scene.has_node(str(id)):
 		var node = scene.get_node(str(id))
-		# if it's MY player that died, set up a spectator view first
-		if id == multiplayer.get_unique_id():
-			var cam = Camera2D.new()
-			cam.position = node.position
+		# if it's MY player that died, hand over to a spectator camera that can
+		# cycle between the remaining living hiders
+		if id == multiplayer.get_unique_id() and not scene.has_node("Spectator"):
+			var cam = SpectatorCamera.new()
+			cam.name = "Spectator"
+			cam.position = node.global_position
 			scene.add_child(cam)
-			cam.make_current()
-			var label = Label.new()
-			label.text = "You died! Spectating..."
-			label.modulate = Color(1, 0.3, 0.3)
-			label.add_theme_font_size_override("font_size", 32)
-			label.set_anchors_preset(Control.PRESET_CENTER_TOP)
-			label.position = Vector2(-150, 20)
-			if scene.has_node("UI"):
-				scene.get_node("UI").add_child(label)
 		node.queue_free()
 
 	# hunters win when every hider is dead
