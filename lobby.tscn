@@ -133,13 +133,13 @@ theme_override_font_sizes/font_size = 32
 theme_override_styles/panel = SubResource("StyleBoxFlat_mcopp")
 
 [node name="rock" parent="VBoxContainer" unique_id=711627764 instance=ExtResource("2_tftiq")]
-position = Vector2(-331, 218.5)
+position = Vector2(-237, 175.5)
 
 [node name="rock2" parent="VBoxContainer" unique_id=1929149218 instance=ExtResource("2_tftiq")]
-position = Vector2(-210, 457.5)
+position = Vector2(-116, 414.5)
 
 [node name="rock3" parent="VBoxContainer" unique_id=2103872767 instance=ExtResource("2_tftiq")]
-position = Vector2(-174, 55.5)
+position = Vector2(-80, 12.5)
 
 [node name="Tree" parent="VBoxContainer" unique_id=1666608514 instance=ExtResource("3_1gg6n")]
 position = Vector2(-99, 219.5)
@@ -160,13 +160,13 @@ position = Vector2(538, 221.5)
 position = Vector2(726, 395.5)
 
 [node name="rock4" parent="VBoxContainer" unique_id=1159065888 instance=ExtResource("2_tftiq")]
-position = Vector2(465, 466.5)
+position = Vector2(559, 423.5)
 
 [node name="rock5" parent="VBoxContainer" unique_id=636380407 instance=ExtResource("2_tftiq")]
-position = Vector2(644, 228.5)
+position = Vector2(738, 185.5)
 
 [node name="rock6" parent="VBoxContainer" unique_id=1986497464 instance=ExtResource("2_tftiq")]
-position = Vector2(459, 50.5)
+position = Vector2(553, 7.5)
 
 [node name="Node2D5" parent="." unique_id=218200156 instance=ExtResource("4_x4164")]
 position = Vector2(175, 267)
@@ -202,10 +202,10 @@ position = Vector2(601, 28)
 position = Vector2(739, 112)
 
 [node name="rock" parent="." unique_id=1964644687 instance=ExtResource("2_tftiq")]
-position = Vector2(504, 141)
+position = Vector2(598, 98)
 
 [node name="rock2" parent="." unique_id=1537778769 instance=ExtResource("2_tftiq")]
-position = Vector2(503, 612)
+position = Vector2(597, 569)
 
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_host_pressed"]
 [connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_join_pressed"]

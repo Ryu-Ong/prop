@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const SPEED = 400.0
+const SPEED = 350.0
 const MAP_MIN = Vector2(-2400, -2400)
 const MAP_MAX = Vector2(2400, 2400)
 

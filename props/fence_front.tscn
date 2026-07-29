@@ -7,12 +7,12 @@
 size = Vector2(128, 120)
 
 [node name="FenceFront" type="StaticBody2D" unique_id=1723082434]
+script = ExtResource("2_plfa0")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1850016325]
 position = Vector2(-2.861023e-06, 2.861023e-06)
 scale = Vector2(4, 4)
 texture = ExtResource("1_1yk8n")
-script = ExtResource("2_plfa0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=349557350]
 position = Vector2(0, 4)
