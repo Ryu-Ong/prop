@@ -3,8 +3,14 @@
 [ext_resource type="Script" uid="uid://b415ho0u614ps" path="res://props/Tree.gd" id="1_ypqmy"]
 [ext_resource type="Texture2D" uid="uid://bpf56p1ld5vvt" path="res://asset/tree-1.png.png" id="2_dyby8"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ypqmy"]
-size = Vector2(42, 141)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xhotr"]
+size = Vector2(89.5, 26)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_02af2"]
+size = Vector2(71, 38)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_12fa4"]
+size = Vector2(43, 157)
 
 [node name="Tree" type="StaticBody2D" unique_id=1666608514]
 disable_mode = 2
@@ -16,5 +22,13 @@ scale = Vector2(2.6640627, 3.0688982)
 texture = ExtResource("2_dyby8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2105232974]
-position = Vector2(-1, 6.5)
-shape = SubResource("RectangleShape2D_ypqmy")
+position = Vector2(0.5, 21)
+shape = SubResource("RectangleShape2D_xhotr")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=2043744550]
+position = Vector2(0.5, -11)
+shape = SubResource("RectangleShape2D_02af2")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="." unique_id=231877833]
+position = Vector2(-0.5, -3.5)
+shape = SubResource("RectangleShape2D_12fa4")
