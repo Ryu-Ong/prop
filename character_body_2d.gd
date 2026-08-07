@@ -3,6 +3,11 @@ extends CharacterBody2D
 const SPEED = 500.0
 
 const IDLE_ANIM = "Sec Idle Down"   # the only idle animation in the SpriteFrames
+
+# Draw order. CanvasItems sort by z_index FIRST and only y-sort within the same
+# z_index, so lifting the hunter out of the shared band (everything else is 0)
+# makes it render above every prop, hider and tile regardless of position.
+const HUNTER_Z_INDEX = 100
 const SNAP_DISTANCE = 500.0         # teleport instead of sliding if we are this far off
 const SMOOTHING = 18.0              # remote follow rate (higher = snappier, lower = smoother)
 const MOVE_EPSILON = 20.0           # px/s below which the hunter counts as standing still
@@ -25,6 +30,7 @@ func _ready():
 	$FovOverlay.visible = is_multiplayer_authority()
 	collision_layer = Global.LAYER_HUNTER
 	collision_mask = Global.LAYER_WORLD | Global.LAYER_HIDER   # blocked by props AND hiders
+	z_index = HUNTER_Z_INDEX
 	target_position = position
 
 func set_stunned(value: bool):

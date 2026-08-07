@@ -11,7 +11,7 @@
 [ext_resource type="Shader" uid="uid://1dtbqj67p16e" path="res://hunter.gdshader" id="9_oc4tt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hqtel"]
-size = Vector2(62, 116)
+size = Vector2(62, 9)
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_i3pqv"]
 properties/0/path = NodePath(".:position")
@@ -182,12 +182,13 @@ shader_parameter/radius = 0.4
 shader_parameter/softness = 0.05
 
 [node name="hunter" type="CharacterBody2D" unique_id=1636324958]
+z_index = 100
 collision_layer = 8
 collision_mask = 3
 script = ExtResource("1_onrkg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1701431440]
-position = Vector2(-1, -1)
+position = Vector2(-1, 52.5)
 shape = SubResource("RectangleShape2D_hqtel")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1203866963]

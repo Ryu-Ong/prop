@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://buoyunxvygp18"]
+
+[ext_resource type="Script" uid="uid://cxs3jptiva2yq" path="res://props/hedge_front.gd" id="1_okhj3"]
+[ext_resource type="Texture2D" uid="uid://bm0dwcb3yjdm6" path="res://asset/hedge_front.png" id="2_yxwl8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sk7ab"]
+size = Vector2(128, 64)
+
+[node name="hedge_front" type="StaticBody2D" unique_id=681372529]
+script = ExtResource("1_okhj3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1631302562]
+shape = SubResource("RectangleShape2D_sk7ab")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=852262887]
+scale = Vector2(2, 2)
+texture = ExtResource("2_yxwl8")
