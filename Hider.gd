@@ -13,18 +13,18 @@ const MOVE_EPSILON = 0.5
 const IDLE_ANIM = "Mole Front"
 
 @onready var camera = $Camera2D
-@onready var sprite = $AnimatedSprite2D
+@onready var sprite = $AnimatedSprite2D        # the mole - the hider's real look
+@onready var disguise = $PropSprite            # plain Sprite2D, only shown while hidden
 @onready var collision = $CollisionShape2D
 @onready var minimap_dot = $MinimapLayer/MinimapBackground/PlayerDot
 @onready var minimap_bg = $MinimapLayer/MinimapBackground
 
 var is_hidden = false
-var original_animation
-var original_frame
-var original_scale
+# Only the collision needs saving now. The AnimatedSprite2D is never modified -
+# transforming just hides it and shows `disguise` instead.
 var original_shape
-var original_sprite_offset := Vector2.ZERO
 var original_collision_offset := Vector2.ZERO
+var remote_direction := Vector2.ZERO   # last movement direction received from the owner
 
 # ---- safe zone ----
 var zone_visual: Node2D = null
@@ -51,12 +51,8 @@ func _ready():
 	# LAYER_HIDER is enough to be blocked by hiders. Leaving the hunter out of the
 	# hider's mask means the hider never reacts, and cannot be shoved.
 	collision_mask = Global.LAYER_WORLD
-	# capture default look ONCE - untransform can never hit nulls now
-	original_animation = sprite.animation
-	original_frame = sprite.frame
-	original_scale = sprite.scale
+	# capture default collision ONCE - untransform can never hit nulls now
 	original_shape = collision.shape
-	original_sprite_offset = sprite.position
 	original_collision_offset = collision.position
 	$MinimapLayer.visible = is_multiplayer_authority()
 	if is_multiplayer_authority():
@@ -69,12 +65,19 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 		for peer_id in Global.in_game_peers:
 			if peer_id != multiplayer.get_unique_id():
-				broadcast_position.rpc_id(peer_id, position)
+				broadcast_state.rpc_id(peer_id, position, direction)
 		update_minimap()
 		update_safe_zone()
 		_update_animation(direction)
+	else:
+		# puppet copy on someone else's machine - animate from the direction the
+		# owner sent, never from a position delta (that flickers, same bug the
+		# hunter had)
+		_update_animation(remote_direction)
 
 func _update_animation(v: Vector2) -> void:
+	if is_hidden:
+		return   # disguised: the AnimatedSprite2D is hidden, nothing to drive
 	if v.length() < MOVE_EPSILON:
 		_play(IDLE_ANIM)
 		return
@@ -217,8 +220,9 @@ func _announce(text: String, color: Color):
 		label.queue_free()
 
 @rpc("authority", "call_remote", "unreliable_ordered")
-func broadcast_position(pos: Vector2):
+func broadcast_state(pos: Vector2, dir: Vector2):
 	position = pos
+	remote_direction = dir
 
 func _input(event):
 	if not is_multiplayer_authority():
@@ -250,8 +254,11 @@ func transform_all(prop_name: String):
 	var prop = get_tree().current_scene.find_child(prop_name, true, false)
 	if prop == null:
 		return
-	is_hidden = true
-	transform(prop)
+	# only mark hidden if the disguise actually applied - transform() bails out on
+	# props missing a Sprite2D or a collision shape, and is_hidden used to be set
+	# before that check, leaving the hider "hidden" while still looking like a mole
+	if transform(prop):
+		is_hidden = true
 
 @rpc("authority", "call_local", "reliable")
 func untransform_all():
@@ -266,26 +273,40 @@ func find_child_of_type(node: Node, type_name: String) -> Node:
 			return found
 	return null
 
-func transform(prop: Node):
+# Returns true if the disguise was actually applied.
+#
+# The hider's own art is an AnimatedSprite2D, which can ONLY play animations out
+# of its SpriteFrames - it has no `texture` to overwrite, so a prop's image can
+# never be pushed into it. Instead the node stays untouched and we swap over to a
+# plain Sprite2D (`disguise`) that CAN take an arbitrary texture.
+func transform(prop: Node) -> bool:
 	var prop_sprite = find_child_of_type(prop, "Sprite2D")
 	var prop_collision = find_child_of_type(prop, "CollisionShape2D")
 	if prop_sprite == null or prop_collision == null or prop_collision.shape == null:
-		return
-	sprite.animation = prop_sprite.animation
-	sprite.scale = prop_sprite.scale
-	collision.shape = prop_collision.shape.duplicate()
+		return false
+
 	# Copy the prop's local offsets too. Without these the disguise sits a few
 	# pixels off from a real prop of the same type - the sprite renders at the
 	# wrong height and the hitbox does not line up with the art, both of which
 	# are visible tells once a hunter knows to look for them.
-	sprite.position = prop_sprite.position
+	disguise.texture = prop_sprite.texture
+	disguise.scale = prop_sprite.scale
+	disguise.position = prop_sprite.position
+	disguise.offset = prop_sprite.offset
+	disguise.flip_h = prop_sprite.flip_h
+	disguise.flip_v = prop_sprite.flip_v
+
+	collision.shape = prop_collision.shape.duplicate()
 	collision.position = prop_collision.position
 
+	disguise.visible = true
+	sprite.visible = false
+	return true
+
 func untransform():
-	sprite.animation = original_animation
-	sprite.scale = original_scale
+	disguise.visible = false
+	sprite.visible = true
 	collision.shape = original_shape
-	sprite.position = original_sprite_offset
 	collision.position = original_collision_offset
 	is_hidden = false
 
