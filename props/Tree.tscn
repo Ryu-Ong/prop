@@ -10,7 +10,7 @@ size = Vector2(42, 141)
 disable_mode = 2
 script = ExtResource("1_ypqmy")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1178887108]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1868617915]
 position = Vector2(-5, -1.9999999)
 scale = Vector2(2.6640627, 3.0688982)
 texture = ExtResource("2_dyby8")

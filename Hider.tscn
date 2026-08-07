@@ -1,10 +1,13 @@
 [gd_scene format=3 uid="uid://bec406ki7um3q"]
 
 [ext_resource type="Script" uid="uid://vd2wn3458ir5" path="res://Hider.gd" id="1_mhxh4"]
-[ext_resource type="Texture2D" uid="uid://di38k233l255t" path="res://asset/pixel-art-of-retro-tv-set-with-simple-design-png.webp" id="2_mhxh4"]
+[ext_resource type="Texture2D" uid="uid://126167l3ggjt" path="res://asset/mole back.png" id="2_7ta54"]
+[ext_resource type="Texture2D" uid="uid://bh3laond5onvc" path="res://asset/mole.png" id="3_f1w1p"]
+[ext_resource type="Texture2D" uid="uid://bkyl0737mfqm0" path="res://asset/mole left.png" id="4_lv8n7"]
+[ext_resource type="Texture2D" uid="uid://c4q580uxrferu" path="res://asset/mole right.png" id="5_2872c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hqtel"]
-size = Vector2(75, 65)
+size = Vector2(59, 48)
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_i3pqv"]
 properties/0/path = NodePath(".:position")
@@ -22,13 +25,91 @@ border_width_right = 2
 border_width_bottom = 2
 border_color = Color(0, 0, 0, 1)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_m1nc8"]
+atlas = ExtResource("2_7ta54")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tvxi7"]
+atlas = ExtResource("2_7ta54")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f4fyo"]
+atlas = ExtResource("3_f1w1p")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ji4q"]
+atlas = ExtResource("3_f1w1p")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r2l8o"]
+atlas = ExtResource("4_lv8n7")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ksa3h"]
+atlas = ExtResource("4_lv8n7")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ak3s"]
+atlas = ExtResource("5_2872c")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xx2bh"]
+atlas = ExtResource("5_2872c")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_an77n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m1nc8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tvxi7")
+}],
+"loop": true,
+"name": &"Mole Back",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f4fyo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ji4q")
+}],
+"loop": true,
+"name": &"Mole Front",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r2l8o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ksa3h")
+}],
+"loop": true,
+"name": &"Mole Left",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ak3s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xx2bh")
+}],
+"loop": true,
+"name": &"Mole Right",
+"speed": 4.0
+}]
+
 [node name="Hider" type="CharacterBody2D" unique_id=1636324958 groups=["Player"]]
 collision_layer = 2
-collision_mask = 1
 script = ExtResource("1_mhxh4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1701431440]
-position = Vector2(-1.5, 10.5)
+position = Vector2(-1.5, 10)
 shape = SubResource("RectangleShape2D_hqtel")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1203866963]
@@ -37,11 +118,6 @@ limit_enabled = false
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=630619689]
 replication_config = SubResource("SceneReplicationConfig_i3pqv")
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=234461220]
-position = Vector2(-0.9999999, -9.536743e-07)
-scale = Vector2(0.10663266, 0.10663266)
-texture = ExtResource("2_mhxh4")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1706597385]
 collision_layer = 5
@@ -65,5 +141,11 @@ layout_mode = 0
 offset_right = 6.0
 offset_bottom = 6.0
 color = Color(0, 0.5137255, 1, 1)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=448027652]
+position = Vector2(-2, 9)
+scale = Vector2(2.1875, 2.1875)
+sprite_frames = SubResource("SpriteFrames_an77n")
+animation = &"Mole Right"
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
