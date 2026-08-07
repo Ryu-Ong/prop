@@ -157,7 +157,75 @@ text = "Garden Warfare (No PvZ)"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Credits" type="VBoxContainer" parent="." unique_id=1490237806]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -250.0
+offset_right = 300.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 24
+
+[node name="Heading" type="Label" parent="Credits" unique_id=1084427726]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("4_ewgt0")
+theme_override_font_sizes/font_size = 72
+theme_override_styles/normal = SubResource("StyleBoxFlat_yxfcj")
+text = "Developers"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Name1" type="Label" parent="Credits" unique_id=1272608194]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("4_ewgt0")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_yxfcj")
+text = "Ryu"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Name2" type="Label" parent="Credits" unique_id=1848003317]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("4_ewgt0")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_yxfcj")
+text = "Keeran"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BackBtn" type="Button" parent="Credits" unique_id=1660799345]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("4_ewgt0")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_yxfcj")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mxk8c")
+theme_override_styles/hover = SubResource("StyleBoxFlat_yxfcj")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_mxk8c")
+text = "Back"
+
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="VBoxContainer/Button3" to="." method="_on_Credits_pressed"]
 [connection signal="pressed" from="VBoxContainer/Button4" to="." method="_on_Exit_pressed"]
+[connection signal="pressed" from="Credits/BackBtn" to="." method="_on_credits_back_pressed"]

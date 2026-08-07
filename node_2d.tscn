@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://buoyunxvygp18" path="res://props/hedge_front.tscn" id="9_ir8iy"]
 [ext_resource type="PackedScene" uid="uid://bwrf2ohatqktv" path="res://props/hedge_side.tscn" id="10_hqns4"]
 [ext_resource type="PackedScene" uid="uid://nymhwc735ay" path="res://props/fence_front.tscn" id="12_0h7mo"]
+[ext_resource type="PackedScene" uid="uid://d0dglobpk6b55" path="res://props/blue_flower.tscn" id="12_nr8wp"]
 [ext_resource type="PackedScene" uid="uid://b2mfy2rhi87c4" path="res://props/fence_left.tscn" id="13_0h7mo"]
 [ext_resource type="PackedScene" uid="uid://cowye5xb68h71" path="res://timer.tscn" id="14_nr8wp"]
 [ext_resource type="PackedScene" uid="uid://c1sx73a86jh05" path="res://props/fence_right.tscn" id="15_d2bti"]
@@ -960,12 +961,6 @@ position = Vector2(1280, -672)
 [node name="hedge_front49" parent="Props/Hedges" unique_id=1292999913 instance=ExtResource("9_ir8iy")]
 position = Vector2(1408, -672)
 
-[node name="hedge_side29" parent="Props/Hedges" unique_id=1292215503 instance=ExtResource("10_hqns4")]
-position = Vector2(1440, -576)
-
-[node name="hedge_side30" parent="Props/Hedges" unique_id=1513623295 instance=ExtResource("10_hqns4")]
-position = Vector2(1440, -448)
-
 [node name="hedge_front50" parent="Props/Hedges" unique_id=1381685588 instance=ExtResource("9_ir8iy")]
 position = Vector2(1472, -352)
 
@@ -1010,12 +1005,6 @@ position = Vector2(2048, -1120)
 
 [node name="hedge_front60" parent="Props/Hedges" unique_id=952947461 instance=ExtResource("9_ir8iy")]
 position = Vector2(1920, -1120)
-
-[node name="hedge_side35" parent="Props/Hedges" unique_id=939227390 instance=ExtResource("10_hqns4")]
-position = Vector2(2080, -1216)
-
-[node name="hedge_side36" parent="Props/Hedges" unique_id=2132155059 instance=ExtResource("10_hqns4")]
-position = Vector2(2080, -1344)
 
 [node name="hedge_side37" parent="Props/Hedges" unique_id=782304889 instance=ExtResource("10_hqns4")]
 position = Vector2(2080, -1472)
@@ -1082,5 +1071,130 @@ position = Vector2(1920, -2080)
 
 [node name="hedge_front76" parent="Props/Hedges" unique_id=108706047 instance=ExtResource("9_ir8iy")]
 position = Vector2(2048, -2080)
+
+[node name="Flowers" type="Node" parent="Props" unique_id=1966888082]
+
+[node name="BlueFlower" parent="Props/Flowers" unique_id=804885493 instance=ExtResource("12_nr8wp")]
+position = Vector2(120, -1968)
+
+[node name="BlueFlower2" parent="Props/Flowers" unique_id=467852245 instance=ExtResource("12_nr8wp")]
+position = Vector2(720, -1680)
+
+[node name="BlueFlower3" parent="Props/Flowers" unique_id=237763388 instance=ExtResource("12_nr8wp")]
+position = Vector2(592, -1952)
+
+[node name="BlueFlower4" parent="Props/Flowers" unique_id=1029312531 instance=ExtResource("12_nr8wp")]
+position = Vector2(472, -1512)
+
+[node name="BlueFlower5" parent="Props/Flowers" unique_id=219798951 instance=ExtResource("12_nr8wp")]
+position = Vector2(1288, -1520)
+
+[node name="BlueFlower6" parent="Props/Flowers" unique_id=953209879 instance=ExtResource("12_nr8wp")]
+position = Vector2(1976, -1680)
+
+[node name="BlueFlower7" parent="Props/Flowers" unique_id=1652446715 instance=ExtResource("12_nr8wp")]
+position = Vector2(1376, -1200)
+
+[node name="BlueFlower8" parent="Props/Flowers" unique_id=1465323948 instance=ExtResource("12_nr8wp")]
+position = Vector2(1720, -1368)
+
+[node name="BlueFlower9" parent="Props/Flowers" unique_id=1999182910 instance=ExtResource("12_nr8wp")]
+position = Vector2(1064, -2000)
+
+[node name="BlueFlower10" parent="Props/Flowers" unique_id=567988803 instance=ExtResource("12_nr8wp")]
+position = Vector2(760, -2120)
+
+[node name="BlueFlower11" parent="Props/Flowers" unique_id=975008278 instance=ExtResource("12_nr8wp")]
+position = Vector2(1848, -2160)
+
+[node name="BlueFlower12" parent="Props/Flowers" unique_id=1010627514 instance=ExtResource("12_nr8wp")]
+position = Vector2(2152, -1464)
+
+[node name="BlueFlower13" parent="Props/Flowers" unique_id=1865779727 instance=ExtResource("12_nr8wp")]
+position = Vector2(296, -1464)
+
+[node name="BlueFlower14" parent="Props/Flowers" unique_id=1096086835 instance=ExtResource("12_nr8wp")]
+position = Vector2(1096, -1032)
+
+[node name="BlueFlower15" parent="Props/Flowers" unique_id=1281585818 instance=ExtResource("12_nr8wp")]
+position = Vector2(1256, -1048)
+
+[node name="BlueFlower16" parent="Props/Flowers" unique_id=200395874 instance=ExtResource("12_nr8wp")]
+position = Vector2(1792, -440)
+
+[node name="BlueFlower17" parent="Props/Flowers" unique_id=1081262820 instance=ExtResource("12_nr8wp")]
+position = Vector2(448, -440)
+
+[node name="BlueFlower18" parent="Props/Flowers" unique_id=1949214989 instance=ExtResource("12_nr8wp")]
+position = Vector2(440, -520)
+
+[node name="BlueFlower19" parent="Props/Flowers" unique_id=1259804731 instance=ExtResource("12_nr8wp")]
+position = Vector2(608, -448)
+
+[node name="BlueFlower20" parent="Props/Flowers" unique_id=1646215381 instance=ExtResource("12_nr8wp")]
+position = Vector2(280, -1552)
+
+[node name="BlueFlower21" parent="Props/Flowers" unique_id=397759127 instance=ExtResource("12_nr8wp")]
+position = Vector2(608, -1512)
+
+[node name="BlueFlower22" parent="Props/Flowers" unique_id=1836429438 instance=ExtResource("12_nr8wp")]
+position = Vector2(648, -1680)
+
+[node name="BlueFlower23" parent="Props/Flowers" unique_id=1573518503 instance=ExtResource("12_nr8wp")]
+position = Vector2(584, -2048)
+
+[node name="BlueFlower24" parent="Props/Flowers" unique_id=1424608389 instance=ExtResource("12_nr8wp")]
+position = Vector2(216, -1960)
+
+[node name="BlueFlower25" parent="Props/Flowers" unique_id=1984539199 instance=ExtResource("12_nr8wp")]
+position = Vector2(752, -2048)
+
+[node name="BlueFlower26" parent="Props/Flowers" unique_id=1756214962 instance=ExtResource("12_nr8wp")]
+position = Vector2(752, -1960)
+
+[node name="BlueFlower27" parent="Props/Flowers" unique_id=227288788 instance=ExtResource("12_nr8wp")]
+position = Vector2(1408, -2008)
+
+[node name="BlueFlower28" parent="Props/Flowers" unique_id=880161111 instance=ExtResource("12_nr8wp")]
+position = Vector2(1984, -2160)
+
+[node name="BlueFlower29" parent="Props/Flowers" unique_id=44264903 instance=ExtResource("12_nr8wp")]
+position = Vector2(1992, -1568)
+
+[node name="BlueFlower30" parent="Props/Flowers" unique_id=282944683 instance=ExtResource("12_nr8wp")]
+position = Vector2(1384, -1520)
+
+[node name="BlueFlower31" parent="Props/Flowers" unique_id=628831584 instance=ExtResource("12_nr8wp")]
+position = Vector2(1072, -928)
+
+[node name="BlueFlower32" parent="Props/Flowers" unique_id=1437046698 instance=ExtResource("12_nr8wp")]
+position = Vector2(1992, -528)
+
+[node name="BlueFlower33" parent="Props/Flowers" unique_id=2097120822 instance=ExtResource("12_nr8wp")]
+position = Vector2(1208, -120)
+
+[node name="BlueFlower34" parent="Props/Flowers" unique_id=975457270 instance=ExtResource("12_nr8wp")]
+position = Vector2(608, -128)
+
+[node name="BlueFlower35" parent="Props/Flowers" unique_id=1133074336 instance=ExtResource("12_nr8wp")]
+position = Vector2(2296, -112)
+
+[node name="BlueFlower36" parent="Props/Flowers" unique_id=53336017 instance=ExtResource("12_nr8wp")]
+position = Vector2(2320, -208)
+
+[node name="BlueFlower37" parent="Props/Flowers" unique_id=215529642 instance=ExtResource("12_nr8wp")]
+position = Vector2(2288, -1056)
+
+[node name="BlueFlower38" parent="Props/Flowers" unique_id=1749401800 instance=ExtResource("12_nr8wp")]
+position = Vector2(2304, -968)
+
+[node name="BlueFlower39" parent="Props/Flowers" unique_id=1058120984 instance=ExtResource("12_nr8wp")]
+position = Vector2(2176, -1064)
+
+[node name="BlueFlower40" parent="Props/Flowers" unique_id=1028412838 instance=ExtResource("12_nr8wp")]
+position = Vector2(656, -1200)
+
+[node name="BlueFlower41" parent="Props/Flowers" unique_id=777703048 instance=ExtResource("12_nr8wp")]
+position = Vector2(576, -1200)
 
 [connection signal="timeout" from="LevelTimer" to="." method="_on_level_timer_timeout"]
