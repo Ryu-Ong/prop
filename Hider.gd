@@ -9,15 +9,18 @@ const SafeZoneVisual = preload("res://safe_zone_visual.gd")
 const SAFE_COLOR = Color(0.25, 1.0, 0.42)
 const UNSAFE_COLOR = Color(1.0, 0.78, 0.18)
 const MIN_MARKER_PX = 12.0   # keep the minimap zone readable even though it is tiny to scale
+const MOVE_EPSILON = 0.5 
+const IDLE_ANIM = "Mole Front"
 
 @onready var camera = $Camera2D
-@onready var sprite = $Sprite2D
+@onready var sprite = $AnimatedSprite2D
 @onready var collision = $CollisionShape2D
 @onready var minimap_dot = $MinimapLayer/MinimapBackground/PlayerDot
 @onready var minimap_bg = $MinimapLayer/MinimapBackground
 
 var is_hidden = false
-var original_texture
+var original_animation
+var original_frame
 var original_scale
 var original_shape
 var original_sprite_offset := Vector2.ZERO
@@ -30,6 +33,7 @@ var zone_marker_style: StyleBoxFlat = null
 var zone_label: Label = null
 var is_in_safe_zone := false
 var _shown_zone_index := -99
+var facing = "Front"
 
 func _ready():
 	camera.enabled = is_multiplayer_authority()
@@ -48,7 +52,8 @@ func _ready():
 	# hider's mask means the hider never reacts, and cannot be shoved.
 	collision_mask = Global.LAYER_WORLD
 	# capture default look ONCE - untransform can never hit nulls now
-	original_texture = sprite.texture
+	original_animation = sprite.animation
+	original_frame = sprite.frame
 	original_scale = sprite.scale
 	original_shape = collision.shape
 	original_sprite_offset = sprite.position
@@ -67,7 +72,27 @@ func _physics_process(delta: float) -> void:
 				broadcast_position.rpc_id(peer_id, position)
 		update_minimap()
 		update_safe_zone()
+		_update_animation(direction)
 
+func _update_animation(v: Vector2) -> void:
+	if v.length() < MOVE_EPSILON:
+		_play(IDLE_ANIM)
+		return
+
+	# dominant axis wins; ties resolve to vertical so a diagonal never flickers
+	if absf(v.y) >= absf(v.x):
+		facing = "Mole Front" if v.y > 0.0 else "Mole Back"
+	else:
+		facing = "Mole Right" if v.x > 0.0 else "Mole Left"
+
+	_play(facing)
+
+func _play(anim: String) -> void:
+	if sprite.animation == anim and sprite.is_playing():
+		return
+	if sprite.sprite_frames and not sprite.sprite_frames.has_animation(anim):
+		anim = IDLE_ANIM
+	sprite.play(anim)
 func update_minimap():
 	minimap_dot.position = _to_minimap(position) - minimap_dot.size / 2
 
@@ -246,7 +271,7 @@ func transform(prop: Node):
 	var prop_collision = find_child_of_type(prop, "CollisionShape2D")
 	if prop_sprite == null or prop_collision == null or prop_collision.shape == null:
 		return
-	sprite.texture = prop_sprite.texture
+	sprite.animation = prop_sprite.animation
 	sprite.scale = prop_sprite.scale
 	collision.shape = prop_collision.shape.duplicate()
 	# Copy the prop's local offsets too. Without these the disguise sits a few
@@ -257,7 +282,7 @@ func transform(prop: Node):
 	collision.position = prop_collision.position
 
 func untransform():
-	sprite.texture = original_texture
+	sprite.animation = original_animation
 	sprite.scale = original_scale
 	collision.shape = original_shape
 	sprite.position = original_sprite_offset
