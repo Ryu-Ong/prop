@@ -57,7 +57,8 @@ func current_target_node() -> Node2D:
 	var scene := get_tree().current_scene
 	if scene == null or not scene.has_node(str(id)):
 		return null
-	return scene.get_node(str(id))
+	# get_node() is typed as Node; narrowing to Node2D needs an explicit cast
+	return scene.get_node(str(id)) as Node2D
 
 # --- input -----------------------------------------------------------------
 

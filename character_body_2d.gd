@@ -23,8 +23,8 @@ var facing = "Down"
 func _ready():
 	camera.enabled = is_multiplayer_authority()
 	$FovOverlay.visible = is_multiplayer_authority()
-	collision_layer = 2
-	collision_mask = 1
+	collision_layer = Global.LAYER_HUNTER
+	collision_mask = Global.LAYER_WORLD | Global.LAYER_HIDER   # blocked by props AND hiders
 	target_position = position
 
 func set_stunned(value: bool):

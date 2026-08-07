@@ -1,6 +1,19 @@
 extends Node
 
-const SpectatorCamera = preload("res://spectator.gd")
+# NOTE: spectator.gd is loaded at runtime rather than with preload().
+# This script is an autoload, and spectator.gd refers back to `Global`, so a
+# preload here would be a cyclic dependency between the two scripts.
+const SPECTATOR_SCRIPT_PATH := "res://spectator.gd"
+
+# ---- physics layers ----
+# Hider and hunter bodies used to share layer 2, and both masked only layer 1,
+# so the hunter passed straight through disguised hiders while real props blocked
+# it - an instant tell. They now sit on separate layers so hunter<->hider can
+# collide WITHOUT making hider<->hider collide (which would stack them at spawn).
+const LAYER_WORLD := 1      # props (StaticBody2D) and the tilemap
+const LAYER_HIDER := 2      # hider bodies
+const LAYER_COMBAT := 4     # baton area + hider hurtbox area
+const LAYER_HUNTER := 8     # hunter body
 
 # ---- map / safe-zone configuration ----
 const MAP_SIZE := 4736.0                       # map is 4736 x 4736, centred on the origin
@@ -25,6 +38,14 @@ var active_zone_index := -1  # -1 = no zone active yet
 func reset_zones() -> void:
 	zones.clear()
 	active_zone_index = -1
+
+# Per-match state that every peer must clear for itself when a game scene loads.
+# lobby.gd only clears dead_hiders on the SERVER (_on_start_pressed returns early
+# for clients), so without this a client kept its dead list from the previous
+# match and every hider looked dead in round two.
+func reset_match_state() -> void:
+	dead_hiders.clear()
+	reset_zones()
 
 # Rect the zone CENTRE may fall inside, so the whole circle stays clear of the edges.
 func zone_center_bounds() -> Rect2:
@@ -115,7 +136,7 @@ func report_death(id: int):
 		# if it's MY player that died, hand over to a spectator camera that can
 		# cycle between the remaining living hiders
 		if id == multiplayer.get_unique_id() and not scene.has_node("Spectator"):
-			var cam = SpectatorCamera.new()
+			var cam = load(SPECTATOR_SCRIPT_PATH).new()
 			cam.name = "Spectator"
 			cam.position = node.global_position
 			scene.add_child(cam)

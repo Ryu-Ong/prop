@@ -6,6 +6,8 @@ extends Node2D
 @onready var timer = $UI/Control/VBoxContainer/Timer/Label
 @onready var leveltimer = $LevelTimer
 
+var hider_label: Label = null
+
 const WAITING_POS = Vector2(15000, 15000)
 const MAIN_SPAWN = Vector2(0, 0)
 
@@ -13,7 +15,10 @@ func _ready():
 	print("READY - my id: ", multiplayer.get_unique_id(), " is server: ", multiplayer.is_server())
 	print("My role: ", Global.my_role)
 
-	Global.reset_zones()
+	# every peer clears its own per-match state, not just the server
+	Global.reset_match_state()
+
+	_build_hider_counter()
 
 	if multiplayer.is_server():
 		multiplayer.peer_disconnected.connect(remove_player)
@@ -117,6 +122,61 @@ func sync_zones(assignments: Dictionary) -> void:
 func set_active_zone(index: int) -> void:
 	Global.active_zone_index = index
 
+# ---------------------------------------------------------------------------
+# LIVING HIDER COUNTER (top right, visible to everyone)
+# ---------------------------------------------------------------------------
+
+func _build_hider_counter() -> void:
+	# Its own CanvasLayer at layer 10. The hunter's FovOverlay vignette is a
+	# CanvasLayer too, and both it and the existing "UI" layer sit at the default
+	# layer 1 - since the hunter is added to the tree at runtime, its vignette
+	# draws last and dims anything on layer 1. A higher layer number renders
+	# above it, so this one counter works for hunter and hiders alike.
+	var hud := CanvasLayer.new()
+	hud.name = "HUD"
+	hud.layer = 10
+	add_child(hud)
+
+	hider_label = Label.new()
+	hider_label.name = "HiderCount"
+	hider_label.set_anchors_preset(Control.PRESET_TOP_RIGHT)
+	hider_label.offset_left = -260.0
+	hider_label.offset_right = -18.0
+	hider_label.offset_top = 56.0        # sits just below the round timer
+	hider_label.offset_bottom = 90.0
+	hider_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+	hider_label.add_theme_font_size_override("font_size", 24)
+	hider_label.add_theme_constant_override("outline_size", 6)
+	hider_label.add_theme_color_override("font_outline_color", Color(0, 0, 0, 1))
+	hud.add_child(hider_label)
+
+	_update_hider_counter()
+
+func living_hider_count() -> int:
+	var n := 0
+	for pid in Global.all_roles:
+		if Global.all_roles[pid] == "hider" and not Global.dead_hiders.has(pid):
+			n += 1
+	return n
+
+func total_hider_count() -> int:
+	var n := 0
+	for pid in Global.all_roles:
+		if Global.all_roles[pid] == "hider":
+			n += 1
+	return n
+
+func _update_hider_counter() -> void:
+	if hider_label == null or not is_instance_valid(hider_label):
+		return
+	var alive := living_hider_count()
+	var total := total_hider_count()
+	hider_label.text = "Hiders: %d / %d" % [alive, total]
+	hider_label.add_theme_color_override(
+		"font_color",
+		Color(0.45, 1.0, 0.55) if alive > 1 else Color(1.0, 0.55, 0.3)
+	)
+
 func show_role_label(text: String, color: Color):
 	var label = Label.new()
 	label.text = text
@@ -153,6 +213,7 @@ func remove_player(id: int):
 func _process(delta):
 	if not leveltimer.is_stopped():
 		timer.text = str(int(leveltimer.time_left))
+	_update_hider_counter()
 
 func hider_win():
 	end_game_hiders_win.rpc()

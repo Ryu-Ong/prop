@@ -20,6 +20,8 @@ var is_hidden = false
 var original_texture
 var original_scale
 var original_shape
+var original_sprite_offset := Vector2.ZERO
+var original_collision_offset := Vector2.ZERO
 
 # ---- safe zone ----
 var zone_visual: Node2D = null
@@ -31,12 +33,26 @@ var _shown_zone_index := -99
 
 func _ready():
 	camera.enabled = is_multiplayer_authority()
-	collision_layer = 2
-	collision_mask = 1
+	collision_layer = Global.LAYER_HIDER
+	# World only - deliberately NOT the hunter.
+	#
+	# move_and_slide() performs depenetration recovery: if this body starts a
+	# frame overlapping something in its mask, it shoves ITSELF out, even at zero
+	# velocity. So while the hunter walked into a disguised hider, the hider's own
+	# move_and_slide pushed it clear and broadcast the new position - the "prop"
+	# visibly slid. Real props are StaticBody2D, never run move_and_slide, and so
+	# can never be pushed; that mismatch was the tell.
+	#
+	# Collision is resolved by the MOVING body's mask, so the hunter masking
+	# LAYER_HIDER is enough to be blocked by hiders. Leaving the hunter out of the
+	# hider's mask means the hider never reacts, and cannot be shoved.
+	collision_mask = Global.LAYER_WORLD
 	# capture default look ONCE - untransform can never hit nulls now
 	original_texture = sprite.texture
 	original_scale = sprite.scale
 	original_shape = collision.shape
+	original_sprite_offset = sprite.position
+	original_collision_offset = collision.position
 	$MinimapLayer.visible = is_multiplayer_authority()
 	if is_multiplayer_authority():
 		_build_zone_ui()
@@ -92,6 +108,9 @@ func _build_zone_ui():
 	$MinimapLayer.add_child(zone_label)
 
 func update_safe_zone():
+	if zone_marker == null or zone_label == null:
+		return   # UI not built (non-authority peer) - nothing to draw
+
 	var zone = Global.my_zone()
 
 	if zone == null:
@@ -107,9 +126,12 @@ func update_safe_zone():
 
 	# spawn the world visual on first use
 	if zone_visual == null or not is_instance_valid(zone_visual):
+		var scene := get_tree().current_scene
+		if scene == null:
+			return   # mid scene-change, try again next frame
 		zone_visual = SafeZoneVisual.new()
 		zone_visual.radius = Global.ZONE_RADIUS
-		get_tree().current_scene.add_child(zone_visual)
+		scene.add_child(zone_visual)
 
 	zone_visual.visible = true
 	zone_visual.global_position = zone
@@ -227,12 +249,19 @@ func transform(prop: Node):
 	sprite.texture = prop_sprite.texture
 	sprite.scale = prop_sprite.scale
 	collision.shape = prop_collision.shape.duplicate()
+	# Copy the prop's local offsets too. Without these the disguise sits a few
+	# pixels off from a real prop of the same type - the sprite renders at the
+	# wrong height and the hitbox does not line up with the art, both of which
+	# are visible tells once a hunter knows to look for them.
+	sprite.position = prop_sprite.position
+	collision.position = prop_collision.position
 
 func untransform():
-	if original_scale != null:
-		sprite.texture = original_texture
-		sprite.scale = original_scale
-		collision.shape = original_shape
+	sprite.texture = original_texture
+	sprite.scale = original_scale
+	collision.shape = original_shape
+	sprite.position = original_sprite_offset
+	collision.position = original_collision_offset
 	is_hidden = false
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
