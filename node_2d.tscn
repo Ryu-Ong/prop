@@ -4,11 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://cao1otk0rmyt0" path="res://hunter.tscn" id="2_4d7sh"]
 [ext_resource type="PackedScene" uid="uid://bec406ki7um3q" path="res://Hider.tscn" id="3_hqns4"]
 [ext_resource type="Texture2D" uid="uid://dujl0ri8t0277" path="res://asset/Grass (2).png" id="6_hqns4"]
+[ext_resource type="PackedScene" uid="uid://buoyunxvygp18" path="res://props/hedge_front.tscn" id="9_ir8iy"]
+[ext_resource type="PackedScene" uid="uid://bwrf2ohatqktv" path="res://props/hedge_side.tscn" id="10_hqns4"]
 [ext_resource type="PackedScene" uid="uid://nymhwc735ay" path="res://props/fence_front.tscn" id="12_0h7mo"]
-[ext_resource type="PackedScene" uid="uid://d0dglobpk6b55" path="res://props/blue_flower.tscn" id="12_nr8wp"]
-[ext_resource type="PackedScene" uid="uid://besd6uxyic2hh" path="res://props/Tree.tscn" id="12_x0ka3"]
 [ext_resource type="PackedScene" uid="uid://b2mfy2rhi87c4" path="res://props/fence_left.tscn" id="13_0h7mo"]
-[ext_resource type="PackedScene" uid="uid://b5sg086amhx76" path="res://props/rock.tscn" id="13_d2bti"]
 [ext_resource type="PackedScene" uid="uid://cowye5xb68h71" path="res://timer.tscn" id="14_nr8wp"]
 [ext_resource type="PackedScene" uid="uid://c1sx73a86jh05" path="res://props/fence_right.tscn" id="15_d2bti"]
 
@@ -728,367 +727,360 @@ autostart = true
 
 [node name="Props" type="Node" parent="." unique_id=733818575]
 
-[node name="Rocks" type="Node" parent="Props" unique_id=1047266243]
+[node name="Hedges" type="Node" parent="Props" unique_id=123764547]
 
-[node name="rock" parent="Props/Rocks" unique_id=711627764 instance=ExtResource("13_d2bti")]
-position = Vector2(-1408, 16)
+[node name="hedge_front" parent="Props/Hedges" unique_id=666794323 instance=ExtResource("9_ir8iy")]
+position = Vector2(1984, -1760)
 
-[node name="rock2" parent="Props/Rocks" unique_id=2059889314 instance=ExtResource("13_d2bti")]
-position = Vector2(-904, -64)
+[node name="hedge_front2" parent="Props/Hedges" unique_id=780883476 instance=ExtResource("9_ir8iy")]
+position = Vector2(1856, -1760)
 
-[node name="rock3" parent="Props/Rocks" unique_id=607834936 instance=ExtResource("13_d2bti")]
-position = Vector2(-192, -1016)
+[node name="hedge_front3" parent="Props/Hedges" unique_id=1951220008 instance=ExtResource("9_ir8iy")]
+position = Vector2(1728, -1760)
 
-[node name="rock4" parent="Props/Rocks" unique_id=2040491608 instance=ExtResource("13_d2bti")]
-position = Vector2(-544, -528)
+[node name="hedge_front4" parent="Props/Hedges" unique_id=1501502179 instance=ExtResource("9_ir8iy")]
+position = Vector2(1600, -1760)
 
-[node name="rock5" parent="Props/Rocks" unique_id=372444008 instance=ExtResource("13_d2bti")]
-position = Vector2(-856, 784)
+[node name="hedge_front5" parent="Props/Hedges" unique_id=1764143848 instance=ExtResource("9_ir8iy")]
+position = Vector2(1216, -1760)
 
-[node name="rock6" parent="Props/Rocks" unique_id=988075234 instance=ExtResource("13_d2bti")]
-position = Vector2(-1384, 560)
+[node name="hedge_front6" parent="Props/Hedges" unique_id=483520275 instance=ExtResource("9_ir8iy")]
+position = Vector2(1344, -1440)
 
-[node name="rock7" parent="Props/Rocks" unique_id=288225158 instance=ExtResource("13_d2bti")]
-position = Vector2(-1432, 1144)
+[node name="hedge_front7" parent="Props/Hedges" unique_id=1222661153 instance=ExtResource("9_ir8iy")]
+position = Vector2(2304, -1120)
 
-[node name="rock8" parent="Props/Rocks" unique_id=389309471 instance=ExtResource("13_d2bti")]
-position = Vector2(-1024, 1312)
+[node name="hedge_front8" parent="Props/Hedges" unique_id=139121627 instance=ExtResource("9_ir8iy")]
+position = Vector2(1728, -1440)
 
-[node name="rock9" parent="Props/Rocks" unique_id=2069834147 instance=ExtResource("13_d2bti")]
-position = Vector2(-1472, -1472)
+[node name="hedge_front9" parent="Props/Hedges" unique_id=1484953137 instance=ExtResource("9_ir8iy")]
+position = Vector2(1600, -1440)
 
-[node name="rock10" parent="Props/Rocks" unique_id=831560210 instance=ExtResource("13_d2bti")]
-position = Vector2(-680, -1416)
+[node name="hedge_front10" parent="Props/Hedges" unique_id=1270975193 instance=ExtResource("9_ir8iy")]
+position = Vector2(1472, -1440)
 
-[node name="rock11" parent="Props/Rocks" unique_id=1037798210 instance=ExtResource("13_d2bti")]
-position = Vector2(-127, -582)
+[node name="hedge_front11" parent="Props/Hedges" unique_id=1731249784 instance=ExtResource("9_ir8iy")]
+position = Vector2(2304, -32)
 
-[node name="rock12" parent="Props/Rocks" unique_id=448339643 instance=ExtResource("13_d2bti")]
-position = Vector2(-1032, -968)
+[node name="hedge_front12" parent="Props/Hedges" unique_id=1923210275 instance=ExtResource("9_ir8iy")]
+position = Vector2(2176, -32)
 
-[node name="rock13" parent="Props/Rocks" unique_id=160805725 instance=ExtResource("13_d2bti")]
-position = Vector2(-1424, -608)
+[node name="hedge_front13" parent="Props/Hedges" unique_id=780880960 instance=ExtResource("9_ir8iy")]
+position = Vector2(2048, -32)
 
-[node name="rock14" parent="Props/Rocks" unique_id=670198865 instance=ExtResource("13_d2bti")]
-position = Vector2(1014, -1179)
+[node name="hedge_front14" parent="Props/Hedges" unique_id=466821510 instance=ExtResource("9_ir8iy")]
+position = Vector2(1920, -32)
 
-[node name="rock15" parent="Props/Rocks" unique_id=461079175 instance=ExtResource("13_d2bti")]
-position = Vector2(226, -1317)
+[node name="hedge_front15" parent="Props/Hedges" unique_id=1312570001 instance=ExtResource("9_ir8iy")]
+position = Vector2(1408, -32)
 
-[node name="rock16" parent="Props/Rocks" unique_id=801810824 instance=ExtResource("13_d2bti")]
-position = Vector2(-712, 384)
+[node name="hedge_front16" parent="Props/Hedges" unique_id=947100716 instance=ExtResource("9_ir8iy")]
+position = Vector2(1536, -32)
 
-[node name="rock17" parent="Props/Rocks" unique_id=1263053646 instance=ExtResource("13_d2bti")]
-position = Vector2(856, 776)
+[node name="hedge_front17" parent="Props/Hedges" unique_id=879534288 instance=ExtResource("9_ir8iy")]
+position = Vector2(1280, -32)
 
-[node name="rock18" parent="Props/Rocks" unique_id=1178976183 instance=ExtResource("13_d2bti")]
-position = Vector2(1240, 400)
+[node name="hedge_front18" parent="Props/Hedges" unique_id=993949634 instance=ExtResource("9_ir8iy")]
+position = Vector2(1152, -32)
 
-[node name="rock19" parent="Props/Rocks" unique_id=103436607 instance=ExtResource("13_d2bti")]
-position = Vector2(707, 246)
+[node name="hedge_front19" parent="Props/Hedges" unique_id=1990884966 instance=ExtResource("9_ir8iy")]
+position = Vector2(768, -32)
 
-[node name="rock20" parent="Props/Rocks" unique_id=10061088 instance=ExtResource("13_d2bti")]
-position = Vector2(1087, -277)
+[node name="hedge_front20" parent="Props/Hedges" unique_id=1888758164 instance=ExtResource("9_ir8iy")]
+position = Vector2(640, -32)
 
-[node name="rock21" parent="Props/Rocks" unique_id=1410941870 instance=ExtResource("13_d2bti")]
-position = Vector2(664, 1464)
+[node name="hedge_front21" parent="Props/Hedges" unique_id=169603231 instance=ExtResource("9_ir8iy")]
+position = Vector2(512, -32)
 
-[node name="rock22" parent="Props/Rocks" unique_id=147119194 instance=ExtResource("13_d2bti")]
-position = Vector2(1424, -977)
+[node name="hedge_front22" parent="Props/Hedges" unique_id=2129996292 instance=ExtResource("9_ir8iy")]
+position = Vector2(384, -32)
 
-[node name="rock23" parent="Props/Rocks" unique_id=1463063682 instance=ExtResource("13_d2bti")]
-position = Vector2(392, 984)
+[node name="hedge_side" parent="Props/Hedges" unique_id=681372529 instance=ExtResource("10_hqns4")]
+position = Vector2(32, -384)
 
-[node name="rock24" parent="Props/Rocks" unique_id=1700090634 instance=ExtResource("13_d2bti")]
-position = Vector2(240, 352)
+[node name="hedge_side2" parent="Props/Hedges" unique_id=1917783131 instance=ExtResource("10_hqns4")]
+position = Vector2(32, -512)
 
-[node name="rock25" parent="Props/Rocks" unique_id=1498224345 instance=ExtResource("13_d2bti")]
-position = Vector2(-192, 984)
+[node name="hedge_side3" parent="Props/Hedges" unique_id=472887377 instance=ExtResource("10_hqns4")]
+position = Vector2(32, -640)
 
-[node name="Trees" type="Node" parent="Props" unique_id=423937070]
+[node name="hedge_side4" parent="Props/Hedges" unique_id=1109419984 instance=ExtResource("10_hqns4")]
+position = Vector2(32, -768)
 
-[node name="Tree" parent="Props/Trees" unique_id=1666608514 instance=ExtResource("12_x0ka3")]
-position = Vector2(751, -1050)
+[node name="hedge_side5" parent="Props/Hedges" unique_id=1591707992 instance=ExtResource("10_hqns4")]
+position = Vector2(32, -1536)
 
-[node name="Tree2" parent="Props/Trees" unique_id=725248659 instance=ExtResource("12_x0ka3")]
-position = Vector2(-1056, 440)
+[node name="hedge_side6" parent="Props/Hedges" unique_id=2136512601 instance=ExtResource("10_hqns4")]
+position = Vector2(32, -1408)
 
-[node name="Tree3" parent="Props/Trees" unique_id=767291670 instance=ExtResource("12_x0ka3")]
-position = Vector2(448, -1168)
+[node name="hedge_side7" parent="Props/Hedges" unique_id=656062819 instance=ExtResource("10_hqns4")]
+position = Vector2(32, -1152)
 
-[node name="Tree4" parent="Props/Trees" unique_id=169950366 instance=ExtResource("12_x0ka3")]
-position = Vector2(56, 1120)
+[node name="hedge_side8" parent="Props/Hedges" unique_id=1144075876 instance=ExtResource("10_hqns4")]
+position = Vector2(32, -1280)
 
-[node name="Tree5" parent="Props/Trees" unique_id=110533300 instance=ExtResource("12_x0ka3")]
-position = Vector2(-1304, -1240)
+[node name="hedge_side9" parent="Props/Hedges" unique_id=1373035410 instance=ExtResource("10_hqns4")]
+position = Vector2(32, -1920)
 
-[node name="Tree6" parent="Props/Trees" unique_id=2000436557 instance=ExtResource("12_x0ka3")]
-position = Vector2(-264, 576)
+[node name="hedge_side10" parent="Props/Hedges" unique_id=261194328 instance=ExtResource("10_hqns4")]
+position = Vector2(32, -2048)
 
-[node name="Tree7" parent="Props/Trees" unique_id=850656624 instance=ExtResource("12_x0ka3")]
-position = Vector2(-1304, -360)
+[node name="hedge_side11" parent="Props/Hedges" unique_id=1069756325 instance=ExtResource("10_hqns4")]
+position = Vector2(32, -2176)
 
-[node name="Tree8" parent="Props/Trees" unique_id=703860237 instance=ExtResource("12_x0ka3")]
-position = Vector2(-1264, 1072)
+[node name="hedge_side12" parent="Props/Hedges" unique_id=238724684 instance=ExtResource("10_hqns4")]
+position = Vector2(32, -2304)
 
-[node name="Tree9" parent="Props/Trees" unique_id=1015625622 instance=ExtResource("12_x0ka3")]
-position = Vector2(173, -1029)
+[node name="hedge_side13" parent="Props/Hedges" unique_id=1156866333 instance=ExtResource("10_hqns4")]
+position = Vector2(1120, -128)
 
-[node name="Tree10" parent="Props/Trees" unique_id=1187575417 instance=ExtResource("12_x0ka3")]
-position = Vector2(1008, -929)
+[node name="hedge_side14" parent="Props/Hedges" unique_id=2070952707 instance=ExtResource("10_hqns4")]
+position = Vector2(1120, -256)
 
-[node name="Tree11" parent="Props/Trees" unique_id=1986370204 instance=ExtResource("12_x0ka3")]
-position = Vector2(895, -1366)
+[node name="hedge_front23" parent="Props/Hedges" unique_id=1144954019 instance=ExtResource("9_ir8iy")]
+position = Vector2(1088, -352)
 
-[node name="Tree12" parent="Props/Trees" unique_id=1982168891 instance=ExtResource("12_x0ka3")]
-position = Vector2(1204, -1245)
+[node name="hedge_front24" parent="Props/Hedges" unique_id=2123675218 instance=ExtResource("9_ir8iy")]
+position = Vector2(960, -352)
 
-[node name="Tree13" parent="Props/Trees" unique_id=782209047 instance=ExtResource("12_x0ka3")]
-position = Vector2(908, -528)
+[node name="hedge_front25" parent="Props/Hedges" unique_id=663892282 instance=ExtResource("9_ir8iy")]
+position = Vector2(832, -352)
 
-[node name="Tree14" parent="Props/Trees" unique_id=558470804 instance=ExtResource("12_x0ka3")]
-position = Vector2(1114, -600)
+[node name="hedge_front26" parent="Props/Hedges" unique_id=1084632130 instance=ExtResource("9_ir8iy")]
+position = Vector2(704, -352)
 
-[node name="Tree15" parent="Props/Trees" unique_id=1265481601 instance=ExtResource("12_x0ka3")]
-position = Vector2(1290, -1329)
+[node name="hedge_front27" parent="Props/Hedges" unique_id=390349323 instance=ExtResource("9_ir8iy")]
+position = Vector2(576, -352)
 
-[node name="Tree16" parent="Props/Trees" unique_id=17955088 instance=ExtResource("12_x0ka3")]
-position = Vector2(925, -863)
+[node name="hedge_front28" parent="Props/Hedges" unique_id=929448675 instance=ExtResource("9_ir8iy")]
+position = Vector2(448, -352)
 
-[node name="Tree17" parent="Props/Trees" unique_id=1921376394 instance=ExtResource("12_x0ka3")]
-position = Vector2(968, -1428)
+[node name="hedge_side15" parent="Props/Hedges" unique_id=275581004 instance=ExtResource("10_hqns4")]
+position = Vector2(352, -384)
 
-[node name="Tree18" parent="Props/Trees" unique_id=1737738173 instance=ExtResource("12_x0ka3")]
-position = Vector2(-616, -216)
+[node name="hedge_side16" parent="Props/Hedges" unique_id=121261936 instance=ExtResource("10_hqns4")]
+position = Vector2(352, -512)
 
-[node name="Tree19" parent="Props/Trees" unique_id=170464221 instance=ExtResource("12_x0ka3")]
-position = Vector2(1287, -1164)
+[node name="hedge_side17" parent="Props/Hedges" unique_id=1480905549 instance=ExtResource("10_hqns4")]
+position = Vector2(352, -640)
 
-[node name="Tree20" parent="Props/Trees" unique_id=1844738798 instance=ExtResource("12_x0ka3")]
-position = Vector2(615, -1463)
+[node name="hedge_side18" parent="Props/Hedges" unique_id=506306614 instance=ExtResource("10_hqns4")]
+position = Vector2(352, -768)
 
-[node name="Tree21" parent="Props/Trees" unique_id=597012465 instance=ExtResource("12_x0ka3")]
-position = Vector2(912, 296)
+[node name="hedge_front29" parent="Props/Hedges" unique_id=1944404236 instance=ExtResource("9_ir8iy")]
+position = Vector2(128, -1120)
 
-[node name="Tree22" parent="Props/Trees" unique_id=288848004 instance=ExtResource("12_x0ka3")]
-position = Vector2(1248, 768)
+[node name="hedge_front30" parent="Props/Hedges" unique_id=423315271 instance=ExtResource("9_ir8iy")]
+position = Vector2(256, -1120)
 
-[node name="Tree23" parent="Props/Trees" unique_id=199982472 instance=ExtResource("12_x0ka3")]
-position = Vector2(1548, -421)
+[node name="hedge_front31" parent="Props/Hedges" unique_id=1776022231 instance=ExtResource("9_ir8iy")]
+position = Vector2(384, -1120)
 
-[node name="Tree24" parent="Props/Trees" unique_id=1895094814 instance=ExtResource("12_x0ka3")]
-position = Vector2(1176, -733)
+[node name="hedge_front32" parent="Props/Hedges" unique_id=1400071231 instance=ExtResource("9_ir8iy")]
+position = Vector2(512, -1120)
 
-[node name="Tree25" parent="Props/Trees" unique_id=1220191315 instance=ExtResource("12_x0ka3")]
-position = Vector2(414, -763)
+[node name="hedge_front33" parent="Props/Hedges" unique_id=2115480169 instance=ExtResource("9_ir8iy")]
+position = Vector2(640, -1120)
 
-[node name="Tree26" parent="Props/Trees" unique_id=1634795698 instance=ExtResource("12_x0ka3")]
-position = Vector2(184, -644)
+[node name="hedge_side19" parent="Props/Hedges" unique_id=1939911307 instance=ExtResource("10_hqns4")]
+position = Vector2(672, -1024)
 
-[node name="Tree27" parent="Props/Trees" unique_id=1913923864 instance=ExtResource("12_x0ka3")]
-position = Vector2(711, -330)
+[node name="hedge_side20" parent="Props/Hedges" unique_id=1818542786 instance=ExtResource("10_hqns4")]
+position = Vector2(672, -896)
 
-[node name="Tree28" parent="Props/Trees" unique_id=128174506 instance=ExtResource("12_x0ka3")]
-position = Vector2(372, -279)
+[node name="hedge_side21" parent="Props/Hedges" unique_id=712225107 instance=ExtResource("10_hqns4")]
+position = Vector2(672, -768)
 
-[node name="Tree29" parent="Props/Trees" unique_id=712705665 instance=ExtResource("12_x0ka3")]
-position = Vector2(1769, -710)
+[node name="hedge_side22" parent="Props/Hedges" unique_id=678911530 instance=ExtResource("10_hqns4")]
+position = Vector2(352, -1856)
 
-[node name="Tree30" parent="Props/Trees" unique_id=1982786414 instance=ExtResource("12_x0ka3")]
-position = Vector2(1430, -684)
+[node name="hedge_front34" parent="Props/Hedges" unique_id=1471124890 instance=ExtResource("9_ir8iy")]
+position = Vector2(128, -1888)
 
-[node name="Tree31" parent="Props/Trees" unique_id=1905632669 instance=ExtResource("12_x0ka3")]
-position = Vector2(1074, -1700)
+[node name="hedge_front35" parent="Props/Hedges" unique_id=332632305 instance=ExtResource("9_ir8iy")]
+position = Vector2(256, -1888)
 
-[node name="Tree32" parent="Props/Trees" unique_id=1113816340 instance=ExtResource("12_x0ka3")]
-position = Vector2(833, -1967)
+[node name="hedge_side23" parent="Props/Hedges" unique_id=397684035 instance=ExtResource("10_hqns4")]
+position = Vector2(352, -1728)
 
-[node name="Tree33" parent="Props/Trees" unique_id=1528758230 instance=ExtResource("12_x0ka3")]
-position = Vector2(1700, -138)
+[node name="hedge_side24" parent="Props/Hedges" unique_id=92487800 instance=ExtResource("10_hqns4")]
+position = Vector2(352, -1600)
 
-[node name="Tree34" parent="Props/Trees" unique_id=1848969660 instance=ExtResource("12_x0ka3")]
-position = Vector2(1881, -382)
+[node name="hedge_side25" parent="Props/Hedges" unique_id=356376277 instance=ExtResource("10_hqns4")]
+position = Vector2(352, -1472)
 
-[node name="Tree35" parent="Props/Trees" unique_id=2095840929 instance=ExtResource("12_x0ka3")]
-position = Vector2(2017, -108)
+[node name="hedge_front36" parent="Props/Hedges" unique_id=1891790034 instance=ExtResource("9_ir8iy")]
+position = Vector2(448, -1440)
 
-[node name="Tree36" parent="Props/Trees" unique_id=1195231759 instance=ExtResource("12_x0ka3")]
-position = Vector2(2273, -386)
+[node name="hedge_front37" parent="Props/Hedges" unique_id=404917771 instance=ExtResource("9_ir8iy")]
+position = Vector2(576, -1440)
 
-[node name="Tree37" parent="Props/Trees" unique_id=658827869 instance=ExtResource("12_x0ka3")]
-position = Vector2(669, -2248)
+[node name="hedge_front38" parent="Props/Hedges" unique_id=700221992 instance=ExtResource("9_ir8iy")]
+position = Vector2(704, -1440)
 
-[node name="Tree38" parent="Props/Trees" unique_id=677825724 instance=ExtResource("12_x0ka3")]
-position = Vector2(1828, -1629)
+[node name="hedge_front39" parent="Props/Hedges" unique_id=554247302 instance=ExtResource("9_ir8iy")]
+position = Vector2(832, -1440)
 
-[node name="Tree39" parent="Props/Trees" unique_id=781705555 instance=ExtResource("12_x0ka3")]
-position = Vector2(-880, -1915)
+[node name="hedge_front40" parent="Props/Hedges" unique_id=447476009 instance=ExtResource("9_ir8iy")]
+position = Vector2(960, -1440)
 
-[node name="Tree40" parent="Props/Trees" unique_id=1696725299 instance=ExtResource("12_x0ka3")]
-position = Vector2(2313, -1811)
+[node name="hedge_side26" parent="Props/Hedges" unique_id=1629609935 instance=ExtResource("10_hqns4")]
+position = Vector2(992, -1024)
 
-[node name="Tree41" parent="Props/Trees" unique_id=1540076580 instance=ExtResource("12_x0ka3")]
-position = Vector2(1462, -1554)
+[node name="hedge_side27" parent="Props/Hedges" unique_id=1402882376 instance=ExtResource("10_hqns4")]
+position = Vector2(992, -896)
 
-[node name="Tree42" parent="Props/Trees" unique_id=589314486 instance=ExtResource("12_x0ka3")]
-position = Vector2(2007, -982)
+[node name="hedge_side28" parent="Props/Hedges" unique_id=396360580 instance=ExtResource("10_hqns4")]
+position = Vector2(992, -768)
 
-[node name="Tree43" parent="Props/Trees" unique_id=269223295 instance=ExtResource("12_x0ka3")]
-position = Vector2(2252, -1050)
+[node name="hedge_front41" parent="Props/Hedges" unique_id=637027718 instance=ExtResource("9_ir8iy")]
+position = Vector2(1024, -1120)
 
-[node name="Tree44" parent="Props/Trees" unique_id=362452917 instance=ExtResource("12_x0ka3")]
-position = Vector2(2289, -1350)
+[node name="hedge_front42" parent="Props/Hedges" unique_id=131013768 instance=ExtResource("9_ir8iy")]
+position = Vector2(1152, -1120)
 
-[node name="Tree45" parent="Props/Trees" unique_id=621758218 instance=ExtResource("12_x0ka3")]
-position = Vector2(474, -1774)
+[node name="hedge_front43" parent="Props/Hedges" unique_id=1677847074 instance=ExtResource("9_ir8iy")]
+position = Vector2(1280, -1120)
 
-[node name="Tree46" parent="Props/Trees" unique_id=564403478 instance=ExtResource("12_x0ka3")]
-position = Vector2(196, -1618)
+[node name="hedge_front44" parent="Props/Hedges" unique_id=1587348425 instance=ExtResource("9_ir8iy")]
+position = Vector2(1408, -1120)
 
-[node name="Tree47" parent="Props/Trees" unique_id=650018062 instance=ExtResource("12_x0ka3")]
-position = Vector2(-90, -1975)
+[node name="hedge_front45" parent="Props/Hedges" unique_id=1587243723 instance=ExtResource("9_ir8iy")]
+position = Vector2(1536, -1120)
 
-[node name="Tree48" parent="Props/Trees" unique_id=1289975961 instance=ExtResource("12_x0ka3")]
-position = Vector2(321, -2193)
+[node name="hedge_front46" parent="Props/Hedges" unique_id=1410858864 instance=ExtResource("9_ir8iy")]
+position = Vector2(1024, -672)
 
-[node name="Tree49" parent="Props/Trees" unique_id=2021013981 instance=ExtResource("12_x0ka3")]
-position = Vector2(2311, -764)
+[node name="hedge_front47" parent="Props/Hedges" unique_id=1781058079 instance=ExtResource("9_ir8iy")]
+position = Vector2(1152, -672)
 
-[node name="Tree50" parent="Props/Trees" unique_id=1955812375 instance=ExtResource("12_x0ka3")]
-position = Vector2(1547, -2173)
+[node name="hedge_front48" parent="Props/Hedges" unique_id=1385299028 instance=ExtResource("9_ir8iy")]
+position = Vector2(1280, -672)
 
-[node name="Tree51" parent="Props/Trees" unique_id=1544332724 instance=ExtResource("12_x0ka3")]
-position = Vector2(1524, -1202)
+[node name="hedge_front49" parent="Props/Hedges" unique_id=1292999913 instance=ExtResource("9_ir8iy")]
+position = Vector2(1408, -672)
 
-[node name="Tree52" parent="Props/Trees" unique_id=933853312 instance=ExtResource("12_x0ka3")]
-position = Vector2(1313, -2262)
+[node name="hedge_side29" parent="Props/Hedges" unique_id=1292215503 instance=ExtResource("10_hqns4")]
+position = Vector2(1440, -576)
 
-[node name="Tree53" parent="Props/Trees" unique_id=1801956103 instance=ExtResource("12_x0ka3")]
-position = Vector2(790, -1708)
+[node name="hedge_side30" parent="Props/Hedges" unique_id=1513623295 instance=ExtResource("10_hqns4")]
+position = Vector2(1440, -448)
 
-[node name="Tree54" parent="Props/Trees" unique_id=2019496746 instance=ExtResource("12_x0ka3")]
-position = Vector2(1142, -1967)
+[node name="hedge_front50" parent="Props/Hedges" unique_id=1381685588 instance=ExtResource("9_ir8iy")]
+position = Vector2(1472, -352)
 
-[node name="Tree55" parent="Props/Trees" unique_id=561380721 instance=ExtResource("12_x0ka3")]
-position = Vector2(2320, -2144)
+[node name="hedge_front51" parent="Props/Hedges" unique_id=1125489096 instance=ExtResource("9_ir8iy")]
+position = Vector2(1600, -352)
 
-[node name="Tree56" parent="Props/Trees" unique_id=1498268581 instance=ExtResource("12_x0ka3")]
-position = Vector2(982, -2078)
+[node name="hedge_front52" parent="Props/Hedges" unique_id=1072599842 instance=ExtResource("9_ir8iy")]
+position = Vector2(1728, -352)
 
-[node name="Tree57" parent="Props/Trees" unique_id=858771957 instance=ExtResource("12_x0ka3")]
-position = Vector2(2071, -1572)
+[node name="hedge_front53" parent="Props/Hedges" unique_id=653316232 instance=ExtResource("9_ir8iy")]
+position = Vector2(1856, -352)
 
-[node name="Tree58" parent="Props/Trees" unique_id=723471095 instance=ExtResource("12_x0ka3")]
-position = Vector2(1846, -1980)
+[node name="hedge_front54" parent="Props/Hedges" unique_id=289019793 instance=ExtResource("9_ir8iy")]
+position = Vector2(1984, -352)
 
-[node name="Tree59" parent="Props/Trees" unique_id=1371905128 instance=ExtResource("12_x0ka3")]
-position = Vector2(2163, -2018)
+[node name="hedge_side31" parent="Props/Hedges" unique_id=850007870 instance=ExtResource("10_hqns4")]
+position = Vector2(2080, -384)
 
-[node name="Tree60" parent="Props/Trees" unique_id=815092690 instance=ExtResource("12_x0ka3")]
-position = Vector2(2011, -2265)
+[node name="hedge_side32" parent="Props/Hedges" unique_id=996164096 instance=ExtResource("10_hqns4")]
+position = Vector2(2080, -512)
 
-[node name="Flowers" type="Node" parent="Props" unique_id=292197306]
+[node name="hedge_side33" parent="Props/Hedges" unique_id=1748747714 instance=ExtResource("10_hqns4")]
+position = Vector2(2080, -640)
 
-[node name="BlueFlower" parent="Props/Flowers" unique_id=804885493 instance=ExtResource("12_nr8wp")]
-position = Vector2(-850, 198)
+[node name="hedge_side34" parent="Props/Hedges" unique_id=1225769222 instance=ExtResource("10_hqns4")]
+position = Vector2(2080, -768)
 
-[node name="BlueFlower2" parent="Props/Flowers" unique_id=408087823 instance=ExtResource("12_nr8wp")]
-position = Vector2(-391, 117)
+[node name="hedge_front55" parent="Props/Hedges" unique_id=936993998 instance=ExtResource("9_ir8iy")]
+position = Vector2(1984, -800)
 
-[node name="BlueFlower3" parent="Props/Flowers" unique_id=1005021155 instance=ExtResource("12_nr8wp")]
-position = Vector2(752, 1036)
+[node name="hedge_front56" parent="Props/Hedges" unique_id=197372064 instance=ExtResource("9_ir8iy")]
+position = Vector2(1856, -800)
 
-[node name="BlueFlower4" parent="Props/Flowers" unique_id=1234247224 instance=ExtResource("12_nr8wp")]
-position = Vector2(861, 98)
+[node name="hedge_front57" parent="Props/Hedges" unique_id=363889653 instance=ExtResource("9_ir8iy")]
+position = Vector2(1728, -800)
 
-[node name="BlueFlower5" parent="Props/Flowers" unique_id=452574978 instance=ExtResource("12_nr8wp")]
-position = Vector2(-420, 772)
+[node name="hedge_front58" parent="Props/Hedges" unique_id=1865033789 instance=ExtResource("9_ir8iy")]
+position = Vector2(2176, -1120)
 
-[node name="BlueFlower6" parent="Props/Flowers" unique_id=322423336 instance=ExtResource("12_nr8wp")]
-position = Vector2(106, 714)
+[node name="hedge_front59" parent="Props/Hedges" unique_id=2002014502 instance=ExtResource("9_ir8iy")]
+position = Vector2(2048, -1120)
 
-[node name="BlueFlower7" parent="Props/Flowers" unique_id=784908694 instance=ExtResource("12_nr8wp")]
-position = Vector2(1186, 1283)
+[node name="hedge_front60" parent="Props/Hedges" unique_id=952947461 instance=ExtResource("9_ir8iy")]
+position = Vector2(1920, -1120)
 
-[node name="BlueFlower8" parent="Props/Flowers" unique_id=298013842 instance=ExtResource("12_nr8wp")]
-position = Vector2(1138, 196)
+[node name="hedge_side35" parent="Props/Hedges" unique_id=939227390 instance=ExtResource("10_hqns4")]
+position = Vector2(2080, -1216)
 
-[node name="BlueFlower9" parent="Props/Flowers" unique_id=589455436 instance=ExtResource("12_nr8wp")]
-position = Vector2(-597, -627)
+[node name="hedge_side36" parent="Props/Hedges" unique_id=2132155059 instance=ExtResource("10_hqns4")]
+position = Vector2(2080, -1344)
 
-[node name="BlueFlower10" parent="Props/Flowers" unique_id=330511412 instance=ExtResource("12_nr8wp")]
-position = Vector2(-854, -1172)
+[node name="hedge_side37" parent="Props/Hedges" unique_id=782304889 instance=ExtResource("10_hqns4")]
+position = Vector2(2080, -1472)
 
-[node name="BlueFlower11" parent="Props/Flowers" unique_id=759611703 instance=ExtResource("12_nr8wp")]
-position = Vector2(-358, -435)
+[node name="hedge_side38" parent="Props/Hedges" unique_id=235178760 instance=ExtResource("10_hqns4")]
+position = Vector2(2080, -1600)
 
-[node name="BlueFlower12" parent="Props/Flowers" unique_id=1875896049 instance=ExtResource("12_nr8wp")]
-position = Vector2(1000, -783)
+[node name="hedge_side39" parent="Props/Hedges" unique_id=18852157 instance=ExtResource("10_hqns4")]
+position = Vector2(2080, -1728)
 
-[node name="BlueFlower13" parent="Props/Flowers" unique_id=1623062450 instance=ExtResource("12_nr8wp")]
-position = Vector2(641, -80)
+[node name="hedge_front61" parent="Props/Hedges" unique_id=1425194422 instance=ExtResource("9_ir8iy")]
+position = Vector2(1088, -1760)
 
-[node name="BlueFlower14" parent="Props/Flowers" unique_id=1103474441 instance=ExtResource("12_nr8wp")]
-position = Vector2(461, -498)
+[node name="hedge_front62" parent="Props/Hedges" unique_id=141393636 instance=ExtResource("9_ir8iy")]
+position = Vector2(960, -1760)
 
-[node name="BlueFlower15" parent="Props/Flowers" unique_id=372316008 instance=ExtResource("12_nr8wp")]
-position = Vector2(1279, -182)
+[node name="hedge_front63" parent="Props/Hedges" unique_id=1284501340 instance=ExtResource("9_ir8iy")]
+position = Vector2(832, -1760)
 
-[node name="BlueFlower16" parent="Props/Flowers" unique_id=237727742 instance=ExtResource("12_nr8wp")]
-position = Vector2(110, -368)
+[node name="hedge_front64" parent="Props/Hedges" unique_id=1912118928 instance=ExtResource("9_ir8iy")]
+position = Vector2(704, -1760)
 
-[node name="BlueFlower17" parent="Props/Flowers" unique_id=474360252 instance=ExtResource("12_nr8wp")]
-position = Vector2(-1138, -152)
+[node name="hedge_side40" parent="Props/Hedges" unique_id=1383210572 instance=ExtResource("10_hqns4")]
+position = Vector2(672, -1856)
 
-[node name="BlueFlower18" parent="Props/Flowers" unique_id=1037719844 instance=ExtResource("12_nr8wp")]
-position = Vector2(-1063, -570)
+[node name="hedge_side41" parent="Props/Hedges" unique_id=78459785 instance=ExtResource("10_hqns4")]
+position = Vector2(672, -1984)
 
-[node name="BlueFlower19" parent="Props/Flowers" unique_id=1727750517 instance=ExtResource("12_nr8wp")]
-position = Vector2(-24, 341)
+[node name="hedge_side42" parent="Props/Hedges" unique_id=445221499 instance=ExtResource("10_hqns4")]
+position = Vector2(672, -2112)
 
-[node name="BlueFlower20" parent="Props/Flowers" unique_id=883760590 instance=ExtResource("12_nr8wp")]
-position = Vector2(713, -1213)
+[node name="hedge_front65" parent="Props/Hedges" unique_id=2119331671 instance=ExtResource("9_ir8iy")]
+position = Vector2(576, -2144)
 
-[node name="BlueFlower21" parent="Props/Flowers" unique_id=1684888021 instance=ExtResource("12_nr8wp")]
-position = Vector2(-1189, 844)
+[node name="hedge_front66" parent="Props/Hedges" unique_id=829123734 instance=ExtResource("9_ir8iy")]
+position = Vector2(448, -2144)
 
-[node name="BlueFlower22" parent="Props/Flowers" unique_id=342504654 instance=ExtResource("12_nr8wp")]
-position = Vector2(-783, 1260)
+[node name="hedge_front67" parent="Props/Hedges" unique_id=1670042257 instance=ExtResource("9_ir8iy")]
+position = Vector2(320, -2144)
 
-[node name="BlueFlower23" parent="Props/Flowers" unique_id=1842341415 instance=ExtResource("12_nr8wp")]
-position = Vector2(490, 224)
+[node name="hedge_front68" parent="Props/Hedges" unique_id=229791273 instance=ExtResource("9_ir8iy")]
+position = Vector2(1024, -2080)
 
-[node name="BlueFlower24" parent="Props/Flowers" unique_id=82014054 instance=ExtResource("12_nr8wp")]
-position = Vector2(670, 524)
+[node name="hedge_front69" parent="Props/Hedges" unique_id=231410423 instance=ExtResource("9_ir8iy")]
+position = Vector2(1152, -2080)
 
-[node name="BlueFlower25" parent="Props/Flowers" unique_id=1741218176 instance=ExtResource("12_nr8wp")]
-position = Vector2(-1427, -939)
+[node name="hedge_front70" parent="Props/Hedges" unique_id=1611550876 instance=ExtResource("9_ir8iy")]
+position = Vector2(1280, -2080)
 
-[node name="BlueFlower26" parent="Props/Flowers" unique_id=982258996 instance=ExtResource("12_nr8wp")]
-position = Vector2(-1163, -1427)
+[node name="hedge_front71" parent="Props/Hedges" unique_id=684267141 instance=ExtResource("9_ir8iy")]
+position = Vector2(1408, -2080)
 
-[node name="BlueFlower27" parent="Props/Flowers" unique_id=8689628 instance=ExtResource("12_nr8wp")]
-position = Vector2(-516, -908)
+[node name="hedge_front72" parent="Props/Hedges" unique_id=832999858 instance=ExtResource("9_ir8iy")]
+position = Vector2(1536, -2080)
 
-[node name="BlueFlower28" parent="Props/Flowers" unique_id=289186101 instance=ExtResource("12_nr8wp")]
-position = Vector2(-211, -1393)
+[node name="hedge_front73" parent="Props/Hedges" unique_id=948358561 instance=ExtResource("9_ir8iy")]
+position = Vector2(1664, -2080)
 
-[node name="BlueFlower29" parent="Props/Flowers" unique_id=102438141 instance=ExtResource("12_nr8wp")]
-position = Vector2(-1366, 320)
+[node name="hedge_front74" parent="Props/Hedges" unique_id=17767187 instance=ExtResource("9_ir8iy")]
+position = Vector2(1792, -2080)
 
-[node name="BlueFlower30" parent="Props/Flowers" unique_id=973985966 instance=ExtResource("12_nr8wp")]
-position = Vector2(-786, -290)
+[node name="hedge_front75" parent="Props/Hedges" unique_id=609278689 instance=ExtResource("9_ir8iy")]
+position = Vector2(1920, -2080)
 
-[node name="BlueFlower31" parent="Props/Flowers" unique_id=1744432241 instance=ExtResource("12_nr8wp")]
-position = Vector2(675, -952)
-
-[node name="BlueFlower32" parent="Props/Flowers" unique_id=896569731 instance=ExtResource("12_nr8wp")]
-position = Vector2(420, -1480)
-
-[node name="BlueFlower33" parent="Props/Flowers" unique_id=1324115227 instance=ExtResource("12_nr8wp")]
-position = Vector2(338, 1285)
-
-[node name="BlueFlower34" parent="Props/Flowers" unique_id=631422846 instance=ExtResource("12_nr8wp")]
-position = Vector2(-233, 1269)
+[node name="hedge_front76" parent="Props/Hedges" unique_id=108706047 instance=ExtResource("9_ir8iy")]
+position = Vector2(2048, -2080)
 
 [connection signal="timeout" from="LevelTimer" to="." method="_on_level_timer_timeout"]

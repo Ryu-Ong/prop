@@ -148,4 +148,7 @@ scale = Vector2(2.1875, 2.1875)
 sprite_frames = SubResource("SpriteFrames_an77n")
 animation = &"Mole Right"
 
+[node name="PropSprite" type="Sprite2D" parent="." unique_id=771203344]
+visible = false
+
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

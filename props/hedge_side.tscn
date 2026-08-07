@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://xfe27ljan4xq" path="res://asset/hedge_side.png" id="2_8s7a0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sk7ab"]
-size = Vector2(64, 112)
+size = Vector2(64, 128)
 
 [node name="hedge_side" type="StaticBody2D" unique_id=681372529]
 script = ExtResource("1_5pfby")
@@ -13,6 +13,6 @@ script = ExtResource("1_5pfby")
 shape = SubResource("RectangleShape2D_sk7ab")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=852262887]
-position = Vector2(32, 0)
-scale = Vector2(2, 1.8285713)
+position = Vector2(32, -1.1920929e-06)
+scale = Vector2(2, 2.0571425)
 texture = ExtResource("2_8s7a0")
