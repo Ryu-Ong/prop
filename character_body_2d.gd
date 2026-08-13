@@ -14,6 +14,7 @@ const MOVE_EPSILON = 20.0           # px/s below which the hunter counts as stan
 
 @onready var animated_sprite = $Animations
 @onready var camera = $Camera2D
+@onready var footsteps = $Footsteps
 
 var is_stunned = false
 var local_only = false
@@ -32,6 +33,7 @@ func _ready():
 	collision_mask = Global.LAYER_WORLD | Global.LAYER_HIDER   # blocked by props AND hiders
 	z_index = HUNTER_Z_INDEX
 	target_position = position
+	Global.force_loop(footsteps)
 
 func set_stunned(value: bool):
 	is_stunned = value
@@ -67,6 +69,11 @@ func _physics_process(delta: float) -> void:
 		anim_velocity = remote_velocity
 
 	_update_animation(anim_velocity)
+	# same source of truth as the animation: real velocity when we own this body,
+	# broadcast velocity when it is someone else's puppet
+	Global.update_loop_sound(footsteps, global_position,
+		anim_velocity.length() >= MOVE_EPSILON,
+		Global.FOOTSTEP_MAX_DISTANCE, Global.FOOTSTEP_TRIM_DB)
 
 func _update_animation(v: Vector2) -> void:
 	if v.length() < MOVE_EPSILON:

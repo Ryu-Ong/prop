@@ -26,6 +26,95 @@ const ZONE_EDGE_MARGIN := 0.2                  # zone centres stay 20% away from
 const ZONE_COUNT := 2                          # zone assigned at 1 min and at 2 min
 const ZONE_INTERVAL := 60.0                    # seconds between reveal / deadline steps
 
+# ---- audio ----
+# Everything is deliberately NON-directional: we use plain AudioStreamPlayers and
+# set volume from distance by hand. AudioStreamPlayer2D would do the falloff for
+# free, but it also pans left/right, which would tell the hunter which WAY a
+# whistle came from. Distance-only means "something is close" without "over there".
+const WHISTLE_MAX_DISTANCE := 2500.0    # whistle is inaudible past this
+const FOOTSTEP_MAX_DISTANCE := 700.0    # footsteps are much more intimate
+const SILENT_DB := -80.0                # Godot treats this as effectively muted
+
+# Exponent on the distance falloff.
+#
+# 2.0 (inverse-square, physically realistic) turned out to be bad for gameplay:
+# it puts -12 dB at half range and -24 dB at three quarters, so the useful
+# listening radius collapsed to roughly half of max_distance - barely past the
+# edge of the screen, which told the hunter almost nothing.
+#
+# 1.0 is straight-line amplitude: -6 dB at half range, -12 dB at three quarters.
+# Quieter sounds stay audible much further out, so distance carries real
+# information. Realism loses to readability here.
+const AUDIO_ATTENUATION := 1.0
+
+# Flat dB offset applied on top of the distance falloff. Lets footsteps sit under
+# the whistle without shrinking the range you can hear them from - drop it further
+# (-12, -16) if they are still too present.
+const FOOTSTEP_TRIM_DB := -9.0
+
+# Where the local player is listening from. Using the active Camera2D covers both
+# living players and dead ones (spectator.gd IS a Camera2D), so this keeps working
+# while spectating with no extra bookkeeping.
+func listener_position() -> Vector2:
+	var vp := get_viewport()
+	if vp:
+		var cam := vp.get_camera_2d()
+		if cam:
+			return cam.global_position
+	return Vector2.ZERO
+
+# Full volume at the source, silent exactly at max_distance, curved in between.
+#
+# Two separate "logarithmic" things are going on and both matter:
+#   1. pow(t, AUDIO_ATTENUATION) shapes the AMPLITUDE falloff so it drops fast
+#      near the source and trails off - roughly how sound behaves in air.
+#   2. linear_to_db() converts that amplitude to decibels, which is the
+#      perceptual scale volume_db expects. Assigning a raw 0-1 value there
+#      would sound wrong no matter how good the curve is.
+func distance_volume_db(world_pos: Vector2, max_distance: float, trim_db: float = 0.0) -> float:
+	var d := listener_position().distance_to(world_pos)
+	var t := 1.0 - clampf(d / max_distance, 0.0, 1.0)
+	if t <= 0.0:
+		return SILENT_DB
+	return linear_to_db(pow(t, AUDIO_ATTENUATION)) + trim_db
+
+# Fire-and-forget one shot (the whistle).
+func play_oneshot(player: AudioStreamPlayer, world_pos: Vector2, max_distance: float) -> void:
+	if player == null or player.stream == null:
+		return
+	player.volume_db = distance_volume_db(world_pos, max_distance)
+	if player.volume_db <= SILENT_DB:
+		return          # too far away to bother playing
+	player.play()
+
+# Continuous looping sound (footsteps). Call every frame; it starts, stops and
+# re-levels itself as the emitter moves and starts/stops.
+func update_loop_sound(player: AudioStreamPlayer, world_pos: Vector2, active: bool, max_distance: float, trim_db: float = 0.0) -> void:
+	if player == null or player.stream == null:
+		return
+	if not active:
+		if player.playing:
+			player.stop()
+		return
+	var db := distance_volume_db(world_pos, max_distance, trim_db)
+	if db <= SILENT_DB:
+		if player.playing:
+			player.stop()
+		return
+	player.volume_db = db
+	if not player.playing:
+		player.play()
+
+# AudioStreamMP3 / AudioStreamOggVorbis both expose `loop`; WAV uses loop_mode.
+# Forcing it here means a dropped-in file loops even if the import setting is off.
+func force_loop(player: AudioStreamPlayer) -> void:
+	if player == null or player.stream == null:
+		return
+	if "loop" in player.stream:
+		player.stream.loop = true
+	elif "loop_mode" in player.stream:
+		player.stream.loop_mode = AudioStreamWAV.LOOP_FORWARD
+
 var my_role = "hider"
 var all_roles = {}
 var in_game_peers = []
@@ -81,6 +170,41 @@ func is_inside_zone(peer_id: int, pos: Vector2) -> bool:
 
 func _ready():
 	multiplayer.peer_disconnected.connect(func(id): in_game_peers.erase(id))
+	set_master_volume(master_volume)
+	# launch an instance pre-muted with the --mute argument
+	if OS.get_cmdline_args().has("--mute"):
+		set_audio_muted(true)
+
+# ---- master volume (settings slider) ----
+# Lives here rather than on the menu so the choice survives scene changes - the
+# menu is freed the moment you enter the lobby.
+var master_volume := 1.0   # 0.0 .. 1.0
+
+func set_master_volume(v: float) -> void:
+	master_volume = clampf(v, 0.0, 1.0)
+	var idx := AudioServer.get_bus_index("Master")
+	# linear_to_db(0) is -inf, so floor it at the silence threshold instead
+	AudioServer.set_bus_volume_db(idx, SILENT_DB if master_volume <= 0.0 else linear_to_db(master_volume))
+
+# ---- debug mute (press M in any running instance) ----
+#
+# Running three copies of the game locally means three copies of every footstep.
+# Muting the Master bus kills all of it for THAT window only - the other
+# instances are separate processes with their own AudioServer, so nothing about
+# the game state or the network is affected.
+var audio_muted := false
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_M:
+		set_audio_muted(not audio_muted)
+
+func set_audio_muted(muted: bool) -> void:
+	audio_muted = muted
+	AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), muted)
+	# stamp the window title so you can see at a glance which windows are silent
+	var w := get_window()
+	if w:
+		w.title = "Prop Hunt v1" + (" [MUTED]" if muted else "")
 
 func enter_game():
 	if multiplayer.is_server():

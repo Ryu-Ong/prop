@@ -12,12 +12,19 @@ const MIN_MARKER_PX = 12.0   # keep the minimap zone readable even though it is 
 const MOVE_EPSILON = 0.5 
 const IDLE_ANIM = "Mole Front"
 
+const FORCED_WHISTLE_INTERVAL = 30.0   # every hider is made to whistle this often
+const WHISTLE_STAGGER = 1.0            # seconds between each hider's slot
+
 @onready var camera = $Camera2D
 @onready var sprite = $AnimatedSprite2D        # the mole - the hider's real look
 @onready var disguise = $PropSprite            # plain Sprite2D, only shown while hidden
 @onready var collision = $CollisionShape2D
 @onready var minimap_dot = $MinimapLayer/MinimapBackground/PlayerDot
 @onready var minimap_bg = $MinimapLayer/MinimapBackground
+@onready var whistle_player = $Whistle
+@onready var footsteps = $Footsteps
+
+var whistle_timer: Timer = null
 
 var is_hidden = false
 # Only the collision needs saving now. The AnimatedSprite2D is never modified -
@@ -55,8 +62,22 @@ func _ready():
 	original_shape = collision.shape
 	original_collision_offset = collision.position
 	$MinimapLayer.visible = is_multiplayer_authority()
+	Global.force_loop(footsteps)
+
 	if is_multiplayer_authority():
 		_build_zone_ui()
+		# Only the owner runs the forced-whistle clock; it then RPCs the whistle
+		# out, so every peer hears it without needing its own timer.
+		#
+		# The FIRST cycle is padded by this hider's slot so the whole lobby does
+		# not whistle in unison - a hunter needs to hear them one at a time to
+		# tell them apart. Every later cycle uses the plain interval (_do_whistle
+		# resets wait_time), so the 1s spacing holds for the rest of the round.
+		whistle_timer = Timer.new()
+		whistle_timer.wait_time = FORCED_WHISTLE_INTERVAL + _whistle_slot() * WHISTLE_STAGGER
+		whistle_timer.autostart = true
+		whistle_timer.timeout.connect(_do_whistle)
+		add_child(whistle_timer)
 
 func _physics_process(delta: float) -> void:
 	if is_multiplayer_authority():
@@ -69,11 +90,15 @@ func _physics_process(delta: float) -> void:
 		update_minimap()
 		update_safe_zone()
 		_update_animation(direction)
+		Global.update_loop_sound(footsteps, global_position,
+			direction.length() > 0.1, Global.FOOTSTEP_MAX_DISTANCE, Global.FOOTSTEP_TRIM_DB)
 	else:
 		# puppet copy on someone else's machine - animate from the direction the
 		# owner sent, never from a position delta (that flickers, same bug the
 		# hunter had)
 		_update_animation(remote_direction)
+		Global.update_loop_sound(footsteps, global_position,
+			remote_direction.length() > 0.1, Global.FOOTSTEP_MAX_DISTANCE, Global.FOOTSTEP_TRIM_DB)
 
 func _update_animation(v: Vector2) -> void:
 	if is_hidden:
@@ -227,6 +252,14 @@ func broadcast_state(pos: Vector2, dir: Vector2):
 func _input(event):
 	if not is_multiplayer_authority():
 		return
+
+	# Taunt. Hardcoded to T rather than an InputMap action so project.godot does
+	# not need editing - swap to Input.is_action_just_pressed("taunt") later if
+	# you want it rebindable.
+	if event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_T:
+		_do_whistle()
+		return
+
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		if is_hidden:
 			untransform_all.rpc()
@@ -315,6 +348,40 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		return
 	if area.name == "Baton":
 		die.rpc()
+
+# ---------------------------------------------------------------------------
+# WHISTLE / TAUNT
+#
+# Owner-side entry point. Broadcasts to every peer and restarts the forced-whistle
+# clock, so choosing to taunt buys you a fresh 30 seconds instead of stacking on
+# top of an automatic one a moment later.
+# ---------------------------------------------------------------------------
+
+# This hider's position in the whistle queue. Derived from the sorted list of
+# hider peer ids, so it is stable and every peer would compute the same number -
+# no coordination needed, and it survives hiders dying mid-round.
+func _whistle_slot() -> int:
+	var hider_ids := []
+	for pid in Global.all_roles:
+		if Global.all_roles[pid] == "hider":
+			hider_ids.append(pid)
+	hider_ids.sort()
+	return maxi(hider_ids.find(int(str(name))), 0)
+
+func _do_whistle() -> void:
+	if not is_multiplayer_authority():
+		return
+	whistle.rpc()
+	if whistle_timer:
+		# drop the one-time stagger padding and settle into the plain interval
+		whistle_timer.wait_time = FORCED_WHISTLE_INTERVAL
+		whistle_timer.start()
+
+@rpc("any_peer", "call_local", "reliable")
+func whistle():
+	# Each peer levels this against ITS OWN listener, so the same broadcast is
+	# loud for a nearby hunter and silent for one across the map.
+	Global.play_oneshot(whistle_player, global_position, Global.WHISTLE_MAX_DISTANCE)
 
 @rpc("any_peer", "call_local", "reliable")
 func die():
